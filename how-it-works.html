@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How It Works — /RedSlash Studio</title>
+    <meta name="description" content="You don't just get a website. You get three specialists — an audience strategist, a brand strategist, and a creative director — encoded from twenty years of broadcast experience. Available whenever you need them.">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="How It Works — /RedSlash Studio">
+    <meta property="og:description" content="Three specialists. Twenty years of broadcast experience. Available whenever you need them.">
+    <meta property="og:image" content="https://redslashstudio.com/assets/og-image.png">
+    <meta property="og:url" content="https://redslashstudio.com/how-it-works.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 160px 48px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--display);
+            font-size: clamp(44px, 7vw, 82px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.06;
+            color: var(--text-warm);
+            margin-bottom: 32px;
+        }
+
+        .hero-sub {
+            font-size: clamp(17px, 2vw, 20px);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 540px;
+        }
+
+        /* Hero typing line */
+        .hero-typed {
+            margin-top: 56px;
+            padding: 20px 32px;
+            background: var(--near-black);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 0;
+            min-height: 64px;
+        }
+
+        .hero-typed .tw-prefix {
+            font-family: var(--display);
+            font-size: 20px;
+        }
+
+        .hero-typed .tw-prefix .prefix {
+            color: var(--red);
+            font-weight: 800;
+            margin-right: 0.08em;
+        }
+
+        .hero-typed .tw-prefix .fixed {
+            color: var(--text-warm);
+            font-weight: 700;
+        }
+
+        .hero-typed .tw-prefix .variable {
+            color: var(--warm-mid);
+            font-weight: 500;
+        }
+
+        .hero-typed .tw-body {
+            font-family: var(--body);
+            font-size: 17px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-left: 12px;
+        }
+
+        .tw-cursor {
+            color: var(--red);
+            animation: blink 0.7s step-end infinite;
+            font-weight: 300;
+            font-family: var(--body);
+            font-size: 20px;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        /* === THE PROBLEM — near-black with subtle texture === */
+        .problem {
+            background: var(--near-black);
+            padding: 120px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .problem-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .problem h2 {
+            font-family: var(--display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-warm);
+            margin-bottom: 36px;
+        }
+
+        .problem-prose {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--text-secondary);
+        }
+
+        .problem-prose p {
+            margin-bottom: 24px;
+        }
+
+        .problem-prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .problem-prose strong {
+            color: var(--text-warm);
+            font-weight: 500;
+        }
+
+        .problem-prose .strike {
+            text-decoration: line-through;
+            text-decoration-color: var(--red);
+            text-decoration-thickness: 2px;
+            color: var(--text-muted);
+        }
+
+        /* === STATEMENT — full-width red typographic moment === */
+        .statement {
+            background: var(--red);
+            padding: 100px 48px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .statement::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(
+                -45deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.04) 2px,
+                rgba(0,0,0,0.04) 4px
+            );
+            pointer-events: none;
+        }
+
+        .statement-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .statement h2 {
+            font-family: var(--display);
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.08;
+            color: white;
+        }
+
+        .statement h2 span {
+            display: block;
+            font-weight: 400;
+            font-size: 0.55em;
+            color: rgba(255,255,255,0.7);
+            margin-top: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        /* === YOUR TEAM — off-white ground === */
+        .lenses {
+            background: var(--off-white);
+            padding: 120px 48px;
+        }
+
+        .lenses-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 80px;
+        }
+
+        .lenses-header .section-label {
+            color: var(--red);
+        }
+
+        .lenses-header h2 {
+            font-family: var(--display);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .lenses-header p {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .lenses-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .lens-card {
+            padding: 48px 40px;
+            border-top: 3px solid transparent;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+
+        .lens-card::after {
+            content: '';
+            position: absolute;
+            top: 48px;
+            bottom: 48px;
+            right: 0;
+            width: 1px;
+            background: #D4D0CB;
+        }
+
+        .lens-card:last-child::after {
+            display: none;
+        }
+
+        .lens-card:hover {
+            border-top-color: var(--red);
+            background: rgba(226, 54, 54, 0.03);
+        }
+
+        .lens-card-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .lens-card h3 {
+            font-family: var(--display);
+            font-size: clamp(24px, 2.5vw, 30px);
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .lens-card h3 .prefix {
+            color: var(--red);
+            font-weight: 800;
+            margin-right: 0.08em;
+        }
+
+        .lens-card h3 .fixed {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .lens-card h3 .variable {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .lens-card-body {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-muted);
+        }
+
+        /* === DIALOGUE — deep black, immersive === */
+        .dialogue {
+            background: #060606;
+            padding: 120px 48px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dialogue::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%);
+            pointer-events: none;
+        }
+
+        .dialogue-inner {
+            max-width: 680px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .dialogue-inner::before {
+            content: '';
+            position: absolute;
+            left: 18px;
+            top: 200px;
+            bottom: 80px;
+            width: 1px;
+            background: linear-gradient(to bottom, transparent, var(--red) 20%, var(--red) 80%, transparent);
+            opacity: 0.15;
+        }
+
+        .dialogue-header {
+            text-align: center;
+            margin-bottom: 72px;
+        }
+
+        .dialogue-header .section-intro {
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dialogue-exchange {
+            margin-bottom: 56px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .dialogue-exchange:last-child {
+            margin-bottom: 0;
+        }
+
+        .dialogue-exchange.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .dialogue-prompt {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .dialogue-prompt-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .dialogue-prompt-content {
+            padding: 18px 22px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 2px 12px 12px 12px;
+            flex-grow: 1;
+        }
+
+        .dialogue-prompt-text {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.5;
+            color: var(--text-warm);
+            min-height: 1.5em;
+        }
+
+        .dialogue-prompt-text .tw-cursor {
+            font-size: 16px;
+        }
+
+        .dialogue-response {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding-left: 52px;
+        }
+
+        .dialogue-response-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--red-subtle);
+            border: 1px solid rgba(226, 54, 54, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-family: var(--display);
+            font-size: 14px;
+            font-weight: 800;
+        }
+
+        .dialogue-response-avatar .prefix {
+            color: var(--red);
+        }
+
+        .dialogue-response-content {
+            flex-grow: 1;
+        }
+
+        .dialogue-response-label {
+            font-family: var(--display);
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .dialogue-response-label .fixed {
+            color: var(--text-warm);
+        }
+
+        .dialogue-response-label .variable {
+            color: var(--warm-mid);
+            font-weight: 500;
+        }
+
+        .dialogue-response-text {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s;
+        }
+
+        .dialogue-exchange.typed .dialogue-response-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === THE BUILD — warm surface with grain === */
+        .build {
+            background: var(--surface);
+            padding: 120px 48px;
+            position: relative;
+        }
+
+        .build::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .build-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            position: relative;
+        }
+
+        .build-text {
+            position: sticky;
+            top: 120px;
+        }
+
+        .build-text h2 {
+            font-family: var(--display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-warm);
+            margin-bottom: 28px;
+        }
+
+        .build-text p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .build-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .build-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .build-step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 24px;
+            padding: 44px 0;
+            border-bottom: 1px solid var(--border);
+            align-items: start;
+        }
+
+        .build-step:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .build-step-number {
+            font-family: var(--display);
+            font-size: 64px;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            color: var(--red);
+        }
+
+        .build-step h4 {
+            font-family: var(--display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-warm);
+            margin-bottom: 8px;
+        }
+
+        .build-step p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.65;
+            color: var(--text-secondary);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .hero { padding: 140px 24px 80px; }
+            .problem { padding: 80px 24px; }
+            .statement { padding: 72px 24px; }
+            .lenses { padding: 80px 24px; }
+            .dialogue { padding: 80px 24px; }
+            .build { padding: 80px 24px; }
+
+            .lenses-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .lens-card::after {
+                display: none;
+            }
+
+            .lens-card {
+                padding: 32px 24px;
+                border-top: 1px solid #D4D0CB;
+            }
+
+            .lens-card:hover {
+                border-top-color: #D4D0CB;
+            }
+
+            .dialogue-response {
+                padding-left: 0;
+            }
+
+            .build-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .build-text {
+                position: static;
+            }
+
+            .build-step {
+                grid-template-columns: 56px 1fr;
+            }
+
+            .build-step-number {
+                font-size: 44px;
+            }
+
+            .hero-typed {
+                padding: 16px 20px;
+            }
+
+            .hero-typed .tw-prefix {
+                font-size: 16px;
+            }
+
+            .hero-typed .tw-body {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+            .statement h2 { font-size: 32px; }
+            .dialogue-prompt-content {
+                padding: 16px 18px;
+            }
+            .build-step-number {
+                font-size: 36px;
+            }
+            .build-step {
+                grid-template-columns: 44px 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="index.html" class="nav-logo"><span class="prefix">/</span>RedSlash</a>
+        <div class="nav-links">
+            <a href="index.html#work">Work</a>
+            <a href="how-it-works.html" class="nav-current">How It Works</a>
+            <a href="index.html#about">About</a>
+            <a href="#contact" class="nav-cta">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- S1: HERO -->
+    <section class="hero">
+        <p class="section-label reveal">How It Works</p>
+        <h1 class="reveal">You get an agency&nbsp;team. Not an agency&nbsp;bill.</h1>
+        <p class="hero-sub reveal">Three specialists — built from twenty years of broadcast experience — who know your brand and are ready whenever you&nbsp;are.</p>
+        <div class="hero-typed reveal" id="hero-typed">
+            <span class="tw-prefix"><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Creative</span></span>
+            <span class="tw-body"><span class="tw-text"></span><span class="tw-cursor">|</span></span>
+        </div>
+    </section>
+
+    <!-- S2: THE PROBLEM -->
+    <section class="problem">
+        <div class="problem-inner">
+            <h2 class="reveal">You've looked at the&nbsp;options.</h2>
+            <div class="problem-prose reveal">
+                <p>You need someone who understands your audience, your message, and how to make it all land visually. But the options don't quite&nbsp;fit.</p>
+                <p><strong>The agency</strong> will do brilliant work — six figures, six months, and you'll wait weeks for a callback. <strong>The template</strong> puts you in a fight with software — hours making Squarespace do what you want, and the result looks like everyone else's. <strong>The freelancer</strong> builds something nice, then moves on. Six months later you can't update it without hiring someone&nbsp;new.</p>
+                <p>Three routes. Same problem: <span class="strike">you end up without what you actually need</span> — someone who knows your brand, is available when you are, and doesn't cost you a&nbsp;fortune.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATEMENT — typographic red moment -->
+    <section class="statement">
+        <div class="statement-inner reveal">
+            <h2>What if you could keep the&nbsp;team? <span>Not just the website.</span></h2>
+        </div>
+    </section>
+
+    <!-- S3: YOUR TEAM — off-white -->
+    <section class="lenses">
+        <div class="lenses-header">
+            <p class="section-label reveal">Your Team</p>
+            <h2 class="reveal">Three specialists. Always&nbsp;on&nbsp;call.</h2>
+            <p class="reveal">I've spent twenty years learning how to understand audiences, shape messages, and make creative that cuts through. I've encoded that expertise into three specialists — and they come with&nbsp;every&nbsp;build.</p>
+        </div>
+
+        <div class="lenses-grid">
+            <div class="lens-card reveal">
+                <p class="lens-card-label">Your Strategist</p>
+                <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Audience</span></h3>
+                <p class="lens-card-body">Knows who you're talking to and what they need to hear. Ask who a page should target, whether your messaging is landing, or how to reach a new market. The strategist keeps everything&nbsp;honest.</p>
+            </div>
+
+            <div class="lens-card reveal">
+                <p class="lens-card-label">Your Brand Thinker</p>
+                <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Brand</span></h3>
+                <p class="lens-card-body">Knows what your business needs to say and how to say it. Get a gut check on messaging, a steer on tone, or help shaping what a new page should communicate. The brand thinker keeps you&nbsp;sharp.</p>
+            </div>
+
+            <div class="lens-card reveal">
+                <p class="lens-card-label">Your Creative Director</p>
+                <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Creative</span></h3>
+                <p class="lens-card-body">Knows your visual language and makes sure everything belongs. Site updates, new pages, pitch decks — anything that represents your brand gets the same broadcast-quality&nbsp;treatment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- S4: DIALOGUE — deep black -->
+    <section class="dialogue">
+        <div class="dialogue-inner">
+            <div class="dialogue-header">
+                <p class="section-label reveal">In Practice</p>
+                <h2 class="section-heading reveal">Like having a conversation with your&nbsp;team</h2>
+                <p class="section-intro reveal">You describe what you need. They handle it.</p>
+            </div>
+
+            <div class="dialogue-exchange" data-prompt="Update the homepage — we've just launched a new service" data-lens="Creative" data-response="I'll update the hero copy and add a new section for the service. I'll keep it within your existing brand guidelines — same voice, same visual structure. Want me to draft the messaging first, or go straight to the build?">
+                <div class="dialogue-prompt">
+                    <div class="dialogue-prompt-avatar">You</div>
+                    <div class="dialogue-prompt-content">
+                        <p class="dialogue-prompt-text"></p>
+                    </div>
+                </div>
+                <div class="dialogue-response">
+                    <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
+                    <div class="dialogue-response-content">
+                        <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Creative</span></p>
+                        <p class="dialogue-response-text">I'll update the hero copy and add a new section for the service. I'll keep it within your existing brand guidelines — same voice, same visual structure. Want me to draft the messaging first, or go straight to the build?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dialogue-exchange" data-prompt="Who should this pitch deck actually be talking to?" data-lens="Audience" data-response="Based on your audience profile, the primary reader is a mid-level commissioner who's seen fifty decks this month and needs to know in ten seconds why yours is different. Lead with the problem they recognise, not your credentials.">
+                <div class="dialogue-prompt">
+                    <div class="dialogue-prompt-avatar">You</div>
+                    <div class="dialogue-prompt-content">
+                        <p class="dialogue-prompt-text"></p>
+                    </div>
+                </div>
+                <div class="dialogue-response">
+                    <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
+                    <div class="dialogue-response-content">
+                        <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Audience</span></p>
+                        <p class="dialogue-response-text">Based on your audience profile, the primary reader is a mid-level commissioner who's seen fifty decks this month and needs to know in ten seconds why yours is different. Lead with the problem they recognise, not your credentials.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dialogue-exchange" data-prompt="Does this messaging feel right? Something's off but I can't put my finger on it" data-lens="Brand" data-response="The tone is right but the structure is working against you. You're leading with what you do before the reader knows why they should care. Flip the first two sections — open with the problem they feel, then introduce the solution. That's where the energy is.">
+                <div class="dialogue-prompt">
+                    <div class="dialogue-prompt-avatar">You</div>
+                    <div class="dialogue-prompt-content">
+                        <p class="dialogue-prompt-text"></p>
+                    </div>
+                </div>
+                <div class="dialogue-response">
+                    <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
+                    <div class="dialogue-response-content">
+                        <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Brand</span></p>
+                        <p class="dialogue-response-text">The tone is right but the structure is working against you. You're leading with what you do before the reader knows why they should care. Flip the first two sections — open with the problem they feel, then introduce the solution. That's where the energy is.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- S5: THE BUILD — warm surface -->
+    <section class="build">
+        <div class="build-inner">
+            <div class="build-text reveal">
+                <p class="section-label">How It Starts</p>
+                <h2>I build the system around&nbsp;you</h2>
+                <p>The three specialists aren't generic — they're trained on your business, your audience, and your visual identity. That's the upfront work.</p>
+                <p>My job is to make myself unnecessary. You get a complete brand system and the team to run it&nbsp;independently.</p>
+            </div>
+
+            <div class="build-steps">
+                <div class="build-step reveal">
+                    <span class="build-step-number">01</span>
+                    <div>
+                        <h4>Understand</h4>
+                        <p>I learn your business — who you are, who you serve, what you're trying to say, and where the gap is. I look at your website, your socials, your competitors. I find where your real voice lives and where it's&nbsp;missing.</p>
+                    </div>
+                </div>
+
+                <div class="build-step reveal">
+                    <span class="build-step-number">02</span>
+                    <div>
+                        <h4>Diagnose</h4>
+                        <p>Audience mapping, messaging diagnosis, brand strategy. I identify who your site should be talking to and where it's falling short. The same rigour an agency brings — in days, not&nbsp;months.</p>
+                    </div>
+                </div>
+
+                <div class="build-step reveal">
+                    <span class="build-step-number">03</span>
+                    <div>
+                        <h4>Build</h4>
+                        <p>Your website, your brand system, your three specialists — each trained on your business, your audience, and your visual identity. Everything crafted at broadcast&nbsp;quality.</p>
+                    </div>
+                </div>
+
+                <div class="build-step reveal">
+                    <span class="build-step-number">04</span>
+                    <div>
+                        <h4>Handover</h4>
+                        <p>You keep the keys. The team knows your brand. You can update your site, build decks, check your messaging — all independently. My job is to make myself&nbsp;unnecessary.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- S6: CTA -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <p class="section-label reveal">Get Started</p>
+            <h2 class="reveal">Ready to meet your&nbsp;team?</h2>
+            <p class="contact-sub reveal">Tell me about your business. I'll show you what's possible.</p>
+            <a href="mailto:hello@redslashstudio.com" class="contact-email reveal">hello@redslashstudio.com</a>
+            <p class="contact-or reveal">or</p>
+            <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mwvwedqe" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell me about your business</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send <span class="arrow">&rarr;</span></button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <span class="footer-logo"><span class="prefix">/</span>RedSlash</span>
+        <span class="footer-copy">&copy; 2026 Red Slash Studio</span>
+    </footer>
+
+    <script>
+        // === Nav scroll ===
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // === Scroll reveal ===
+        const reveals = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        reveals.forEach(el => revealObserver.observe(el));
+
+        // === Staggered lens card reveals ===
+        const lensCards = document.querySelectorAll('.lens-card.reveal');
+        const lensObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.parentElement.querySelectorAll('.lens-card');
+                    cards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), i * 150);
+                    });
+                    lensObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        if (lensCards.length) lensObserver.observe(lensCards[0]);
+
+        // === Typewriter engine ===
+        function typeText(el, text, onComplete) {
+            el.textContent = '';
+            let i = 0;
+            function step() {
+                if (i >= text.length) {
+                    if (onComplete) onComplete();
+                    return;
+                }
+                const ch = text[i++];
+                el.textContent += ch;
+                const delay = ch === ' ' ? 100 + Math.random() * 60 : 55 + Math.random() * 40;
+                setTimeout(step, delay);
+            }
+            step();
+        }
+
+        // === Hero typing loop ===
+        const heroCommands = [
+            { variable: 'Creative', text: ' Update the homepage with our new service' },
+            { variable: 'Audience', text: ' Who should this deck be talking to?' },
+            { variable: 'Brand', text: ' Does this messaging feel right?' },
+            { variable: 'Creative', text: ' Build a pitch deck for Thursday' },
+        ];
+
+        function runHeroLoop() {
+            const typed = document.getElementById('hero-typed');
+            if (!typed) return;
+            const variableEl = typed.querySelector('.variable');
+            const textEl = typed.querySelector('.tw-text');
+            let idx = 0;
+
+            function showNext() {
+                const cmd = heroCommands[idx % heroCommands.length];
+                variableEl.textContent = cmd.variable;
+                textEl.textContent = '';
+
+                typeText(textEl, cmd.text, () => {
+                    setTimeout(() => {
+                        textEl.textContent = '';
+                        idx++;
+                        setTimeout(showNext, 400);
+                    }, 2800);
+                });
+            }
+
+            setTimeout(showNext, 1200);
+        }
+
+        runHeroLoop();
+
+        // === Dialogue typing on scroll ===
+        const dialogueExchanges = document.querySelectorAll('.dialogue-exchange');
+
+        const dialogueObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.typed) {
+                    entry.target.dataset.typed = 'true';
+                    entry.target.classList.add('visible');
+
+                    const promptText = entry.target.dataset.prompt;
+                    const promptEl = entry.target.querySelector('.dialogue-prompt-text');
+
+                    setTimeout(() => {
+                        typeText(promptEl, promptText, () => {
+                            setTimeout(() => {
+                                entry.target.classList.add('typed');
+                            }, 400);
+                        });
+                    }, 300);
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '0px 0px -60px 0px'
+        });
+
+        dialogueExchanges.forEach(el => dialogueObserver.observe(el));
+
+        // === Form submission ===
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('.form-submit');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    btn.textContent = 'Sent \u2713';
+                    btn.style.background = 'var(--border)';
+                    form.reset();
+                } else {
+                    btn.textContent = 'Something went wrong \u2014 try emailing instead';
+                    btn.style.background = 'var(--border)';
+                }
+            } catch {
+                btn.textContent = 'Something went wrong \u2014 try emailing instead';
+                btn.style.background = 'var(--border)';
+            }
+        });
+
+        // === Smooth scroll for anchor links ===
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
