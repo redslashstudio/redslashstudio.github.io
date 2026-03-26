@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RedSlashStudio</title>
-    <meta name="description" content="Broadcast-quality brands, websites, and everything that goes with them — for ambitious businesses. Twenty years of broadcast experience. A fraction of the agency cost.">
+    <meta name="description" content="You don't just get a website. You get three specialists — an audience strategist, a brand strategist, and a creative director — built from twenty years of broadcast experience.">
     <meta name="theme-color" content="#0A0A0A">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -12,14 +12,14 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="/RedSlash Studio">
-    <meta property="og:description" content="Broadcast-quality brands, websites, and everything that goes with them — for ambitious businesses. Twenty years of broadcast experience. A fraction of the agency cost.">
+    <meta property="og:description" content="Three specialists. Twenty years of broadcast experience. Available whenever you need them.">
     <meta property="og:image" content="https://redslashstudio.com/assets/og-image.png">
     <meta property="og:url" content="https://redslashstudio.com">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="/RedSlash Studio">
-    <meta name="twitter:description" content="Broadcast-quality creative for ambitious businesses.">
+    <meta name="twitter:description" content="Three specialists. Twenty years of broadcast experience.">
     <meta name="twitter:image" content="https://redslashstudio.com/assets/og-image.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -97,88 +97,86 @@
             transform: translateX(4px);
         }
 
-/* === HOW IT WORKS === */
-        .how {
-            background: var(--black);
+        /* === YOUR TEAM === */
+        .team {
+            background: var(--near-black);
             padding: 120px 48px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .how-inner {
+        .team::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .team-inner {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
-        .how-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            margin-top: 64px;
+        .team-header {
+            max-width: 640px;
+            margin-bottom: 72px;
         }
 
-        .how-left {
+        .team-header h2 {
+            font-family: var(--display);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text-warm);
+            margin-bottom: 20px;
+        }
+
+        .team-header p {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
             max-width: 520px;
         }
 
-        .how-step {
-            margin-bottom: 48px;
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
         }
 
-        .how-step:last-child {
-            margin-bottom: 0;
+        .team-card {
+            padding: 48px 40px;
+            border-top: 1px solid var(--border);
+            transition: border-color 0.3s ease, background 0.3s ease;
+            position: relative;
         }
 
-        .how-step-number {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--text-muted);
-            margin-bottom: 12px;
+        .team-card::after {
+            content: '';
+            position: absolute;
+            top: 48px;
+            bottom: 48px;
+            right: 0;
+            width: 1px;
+            background: var(--border);
         }
 
-        .how-step h3 {
-            font-family: var(--display);
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color: var(--text-warm);
-            margin-bottom: 12px;
+        .team-card:last-child::after {
+            display: none;
         }
 
-        .how-step p {
-            font-size: 15px;
-            font-weight: 400;
-            line-height: 1.7;
-            color: var(--text-secondary);
+        .team-card:hover {
+            border-top-color: var(--red);
+            background: rgba(226, 54, 54, 0.03);
         }
 
-        .how-right {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .how-pullquote {
-            font-family: var(--display);
-            font-size: clamp(28px, 3.5vw, 40px);
-            font-weight: 600;
-            font-style: italic;
-            letter-spacing: -0.02em;
-            line-height: 1.3;
-            color: var(--text-warm);
-            border-left: 3px solid var(--red);
-            padding-left: 32px;
-            margin-bottom: 48px;
-        }
-
-        .how-deliverables {
-            padding: 32px;
-            background: var(--surface);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .how-deliverables h4 {
+        .team-card-label {
             font-size: 12px;
             font-weight: 600;
             text-transform: uppercase;
@@ -187,20 +185,265 @@
             margin-bottom: 20px;
         }
 
-        .deliverable-list {
-            display: flex;
-            flex-wrap: wrap;
+        .team-card h3 {
+            font-family: var(--display);
+            font-size: clamp(22px, 2.2vw, 28px);
+            letter-spacing: -0.01em;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .team-card h3 .prefix {
+            color: var(--red);
+            font-weight: 800;
+            margin-right: 0.08em;
+        }
+
+        .team-card h3 .fixed {
+            color: var(--text-warm);
+            font-weight: 700;
+        }
+
+        .team-card h3 .variable {
+            color: var(--warm-mid);
+            font-weight: 500;
+        }
+
+        .team-card-body {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .team-cta {
+            margin-top: 64px;
+        }
+
+        .team-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-warm);
+            text-decoration: none;
+            padding: 14px 28px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        .team-cta a:hover {
+            border-color: var(--text-secondary);
+            background: var(--surface);
+        }
+
+        .team-cta a .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .team-cta a:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* === PROOF — project snapshots === */
+        .proof {
+            background: var(--black);
+            padding: 120px 48px;
+        }
+
+        .proof-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .proof-header {
+            margin-bottom: 72px;
+        }
+
+        .proof-header h2 {
+            font-family: var(--display);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text-warm);
+            margin-bottom: 16px;
+        }
+
+        .proof-header p {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 520px;
+        }
+
+        /* Featured project — full width */
+        .proof-featured {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 64px;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            margin-bottom: 64px;
+        }
+
+        .proof-featured-image {
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface);
+        }
+
+        .proof-featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .proof-featured:hover .proof-featured-image img {
+            transform: scale(1.02);
+        }
+
+        .proof-featured-content {
+            max-width: 480px;
+        }
+
+        .proof-featured-sector {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .proof-featured-name {
+            font-family: var(--display);
+            font-size: clamp(28px, 3vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--text-warm);
+            margin-bottom: 16px;
+        }
+
+        .proof-featured-desc {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .proof-featured-link {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-warm);
+            display: inline-flex;
+            align-items: center;
             gap: 8px;
         }
 
-        .deliverable-tag {
-            font-size: 13px;
-            font-weight: 500;
+        .proof-featured-link .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .proof-featured:hover .proof-featured-link .arrow {
+            transform: translateX(4px);
+        }
+
+        /* Smaller project cards — three across */
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+
+        .proof-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .proof-card-image {
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface);
+            margin-bottom: 20px;
+        }
+
+        .proof-card-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .proof-card:hover .proof-card-image img {
+            transform: scale(1.02);
+        }
+
+        .proof-card-sector {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .proof-card-name {
+            font-family: var(--display);
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-warm);
+            margin-bottom: 8px;
+        }
+
+        .proof-card-desc {
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1.65;
             color: var(--text-secondary);
-            padding: 8px 16px;
-            background: var(--surface-light);
-            border-radius: 4px;
+        }
+
+        .proof-all {
+            margin-top: 64px;
+            text-align: center;
+        }
+
+        .proof-all a {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-warm);
+            text-decoration: none;
+            padding: 14px 28px;
             border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        .proof-all a:hover {
+            border-color: var(--text-secondary);
+            background: var(--surface);
+        }
+
+        .proof-all a .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .proof-all a:hover .arrow {
+            transform: translateX(4px);
         }
 
         /* === ABOUT === */
@@ -220,19 +463,6 @@
 
         .about-image-col {
             position: relative;
-        }
-
-        .about-image-placeholder {
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            background: var(--near-black);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 500;
         }
 
         .about-text h2 {
@@ -289,31 +519,40 @@
             border-radius: 4px;
         }
 
-        /* === RESPONSIVE (page-specific) === */
+        /* === RESPONSIVE === */
         @media (max-width: 900px) {
             .hero { padding: 140px 24px 80px; }
-.how { padding: 80px 24px; }
+            .team { padding: 80px 24px; }
+            .proof { padding: 80px 24px; }
             .about { padding: 80px 24px; }
 
-.how-content {
+            .team-grid {
                 grid-template-columns: 1fr;
-                gap: 48px;
+                gap: 0;
+            }
+
+            .team-card::after {
+                display: none;
+            }
+
+            .team-card {
+                border-top: 1px solid var(--border);
+            }
+
+            .proof-featured {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+                gap: 36px;
             }
 
             .about-inner {
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
-
-            .about-image-placeholder {
-                aspect-ratio: 16 / 9;
-            }
-
-            .about-credentials {
-                flex-direction: column;
-                gap: 24px;
-            }
-
         }
 
         @media (max-width: 600px) {
@@ -325,58 +564,103 @@
 
     <nav id="nav"></nav>
 
-    <!-- S1: HERO -->
+    <!-- S1: HERO — recognition then proposition -->
     <section class="hero">
         <p class="hero-label">Independence, not dependency.</p>
-        <h1>Your business deserves creative that competes with the&nbsp;big&nbsp;players</h1>
-        <p class="hero-sub">I build brands, websites, and everything that goes with them — at the quality level that major agencies charge six figures for. One person. Twenty years of broadcast experience. A fraction of the&nbsp;cost.</p>
-        <a href="projects.html" class="hero-cta">See the projects <span class="arrow">&rarr;</span></a>
+        <h1>Your brand isn't working as hard as your&nbsp;business&nbsp;is</h1>
+        <p class="hero-sub">You know it. Nothing out there quite reflects what you've built. The options — agencies, templates, freelancers — don't quite fit. What if you could get the team without the&nbsp;overhead?</p>
+        <a href="how-it-works.html" class="hero-cta">See how it works <span class="arrow">&rarr;</span></a>
     </section>
 
-    <!-- S2: HOW IT WORKS -->
-    <section class="how" id="how">
-        <div class="how-inner">
-            <p class="section-label reveal">How It Works</p>
-            <h2 class="section-heading reveal">Agency thinking.<br>Without the agency.</h2>
+    <!-- S2: YOUR TEAM — the product -->
+    <section class="team" id="team">
+        <div class="team-inner">
+            <div class="team-header">
+                <p class="section-label reveal">What You Get</p>
+                <h2 class="reveal">Not just a website.<br>A team that stays.</h2>
+                <p class="reveal">I start by building your brand DNA — the website is the foundation. Then I encode that into three specialists, drawn from twenty years at the BBC and Channel 4. They know your audience, your voice, and your visual identity — and they can produce anything from&nbsp;it.</p>
+            </div>
 
-            <div class="how-content">
-                <div class="how-left">
-                    <div class="how-step reveal">
-                        <p class="how-step-number">The Experience</p>
-                        <h3>Twenty years in broadcast</h3>
-                        <p>I spent two decades at the BBC and Channel 4, working across some of the biggest brands in British broadcasting. I've spent that time learning how to make things that cut through — for audiences that don't owe you their attention.</p>
-                    </div>
-
-                    <div class="how-step reveal">
-                        <p class="how-step-number">The System</p>
-                        <h3>Not a shortcut — a methodology</h3>
-                        <p>I've encoded that experience into an approach. Audience mapping, brand diagnosis, editorial structure, broadcast-quality execution. The same strategic thinking that major organisations pay six figures for — delivered in days, not months.</p>
-                    </div>
-
-                    <div class="how-step reveal">
-                        <p class="how-step-number">The Handover</p>
-                        <h3>You keep the keys</h3>
-                        <p>I don't build things you need me to maintain. You get a complete brand system — website, strategy, content tools, marketing assets — and the knowledge to run it independently. My job is to make myself unnecessary.</p>
-                    </div>
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <p class="team-card-label">Your Strategist</p>
+                    <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Audience</span></h3>
+                    <p class="team-card-body">Knows who you're talking to and what they need to hear. Whether it's a website, a pitch deck, or a campaign — they'll tell you who it should target and whether the messaging is&nbsp;landing.</p>
                 </div>
 
-                <div class="how-right">
-                    <p class="how-pullquote reveal">The same quality of thinking that used to require a six-figure agency budget — now accessible to the businesses that need it most.</p>
-
-                    <div class="how-deliverables reveal">
-                        <h4>What You Get</h4>
-                        <div class="deliverable-list">
-                            <span class="deliverable-tag">Websites</span>
-                            <span class="deliverable-tag">Brand Strategy</span>
-                            <span class="deliverable-tag">Audience Profiles</span>
-                            <span class="deliverable-tag">Content Systems</span>
-                            <span class="deliverable-tag">Marketing Tools</span>
-                            <span class="deliverable-tag">Social Assets</span>
-                            <span class="deliverable-tag">Copywriting</span>
-                            <span class="deliverable-tag">Visual Identity</span>
-                        </div>
-                    </div>
+                <div class="team-card reveal">
+                    <p class="team-card-label">Your Brand Thinker</p>
+                    <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Brand</span></h3>
+                    <p class="team-card-body">Knows what your business needs to say and how to say it. Get a gut check on messaging, a steer on tone, or help shaping what any new piece of communication should&nbsp;land.</p>
                 </div>
+
+                <div class="team-card reveal">
+                    <p class="team-card-label">Your Creative Director</p>
+                    <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Creative</span></h3>
+                    <p class="team-card-body">Knows your visual language and makes sure everything belongs. Website updates, pitch decks, social assets, documents — anything that carries your brand gets broadcast-quality&nbsp;treatment.</p>
+                </div>
+            </div>
+
+            <div class="team-cta reveal">
+                <a href="how-it-works.html">See them in action <span class="arrow">&rarr;</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- S3: PROOF — project snapshots -->
+    <section class="proof" id="work">
+        <div class="proof-inner">
+            <div class="proof-header">
+                <p class="section-label reveal">Selected Projects</p>
+                <h2 class="reveal">Four industries.<br>Four gaps closed.</h2>
+                <p class="reveal">Every project starts the same way: a business that's outgrown how it presents itself. Here's what that looks&nbsp;like.</p>
+            </div>
+
+            <!-- Featured: FFF -->
+            <a href="projects/fighting-for-a-free-future.html" class="proof-featured reveal">
+                <div class="proof-featured-image">
+                    <img src="assets/projects/fff.jpg" alt="Fighting for a Free Future website" loading="lazy">
+                </div>
+                <div class="proof-featured-content">
+                    <p class="proof-featured-sector">Media</p>
+                    <h3 class="proof-featured-name">Fighting for a Free&nbsp;Future</h3>
+                    <p class="proof-featured-desc">A political movement with real momentum — 2,400 subscribers, two podcasts, a coalition of think tanks — but a website that didn't show any of it. Rebuilt as an editorial media&nbsp;brand.</p>
+                    <span class="proof-featured-link">Read the case study <span class="arrow">&rarr;</span></span>
+                </div>
+            </a>
+
+            <!-- Secondary row -->
+            <div class="proof-grid">
+                <a href="projects/the-podcast-show.html" class="proof-card reveal">
+                    <div class="proof-card-image">
+                        <img src="assets/projects/tps26.jpg" alt="The Podcast Show London website" loading="lazy">
+                    </div>
+                    <p class="proof-card-sector">Events</p>
+                    <h3 class="proof-card-name">The Podcast Show London</h3>
+                    <p class="proof-card-desc">10,000 attendees, 450+ speakers — an event that had outgrown its front&nbsp;door.</p>
+                </a>
+
+                <a href="projects/careadhd.html" class="proof-card reveal">
+                    <div class="proof-card-image">
+                        <img src="assets/projects/careadhd.jpg" alt="CareADHD website" loading="lazy">
+                    </div>
+                    <p class="proof-card-sector">Healthcare</p>
+                    <h3 class="proof-card-name">CareADHD</h3>
+                    <p class="proof-card-desc">A clear process — wrapped in a journey that talked at patients instead of to&nbsp;them.</p>
+                </a>
+
+                <a href="projects/mffreeman.html" class="proof-card reveal">
+                    <div class="proof-card-image">
+                        <img src="assets/projects/mffreeman.jpg" alt="MF Freeman website" loading="lazy">
+                    </div>
+                    <p class="proof-card-sector">Property</p>
+                    <h3 class="proof-card-name">MF Freeman</h3>
+                    <p class="proof-card-desc">Sixty years of heritage, award-winning zero-carbon — and a website that read like a corporate&nbsp;directory.</p>
+                </a>
+            </div>
+
+            <div class="proof-all reveal">
+                <a href="projects.html">All projects <span class="arrow">&rarr;</span></a>
             </div>
         </div>
     </section>
