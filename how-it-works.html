@@ -665,6 +665,9 @@
     <!-- NAV -->
     <nav id="nav">
         <a href="index.html" class="nav-logo"><span class="prefix">/</span>RedSlash</a>
+        <button class="nav-hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
         <div class="nav-links">
             <a href="index.html#work">Work</a>
             <a href="how-it-works.html" class="nav-current">How It Works</a>
@@ -1021,6 +1024,22 @@
                 }
             });
         });
+
+        // Mobile hamburger menu
+        const hamburger = document.querySelector('.nav-hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('open');
+            });
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('open');
+                });
+            });
+        }
     </script>
 
 </body>
