@@ -5,9 +5,12 @@
 (function () {
 
     // --- NAV ---
-    const page = location.pathname.split('/').pop() || 'index.html';
+    const pathParts = location.pathname.split('/').filter(Boolean);
+    const page = pathParts.pop() || 'index.html';
+    const inSubdir = pathParts.length > 0 && pathParts[pathParts.length - 1] === 'projects';
 
     const navLinks = [
+        { href: 'index.html', label: 'Home' },
         { href: 'projects.html', label: 'Projects' },
         { href: 'how-it-works.html', label: 'How It Works' },
         { href: 'faq.html', label: 'Q&A' },
@@ -16,7 +19,7 @@
 
     const navEl = document.getElementById('nav');
     if (navEl) {
-        const isHome = page === 'index.html' || page === '';
+        const isHome = (page === 'index.html' || page === '') && !inSubdir;
         const logoHref = isHome ? '#' : 'index.html';
 
         navEl.innerHTML = `
@@ -25,9 +28,10 @@
                 <span></span><span></span><span></span>
             </button>
             <div class="nav-links">
-                ${navLinks.map(l =>
-                    `<a href="${l.href}"${l.href === page ? ' class="nav-current"' : ''}>${l.label}</a>`
-                ).join('\n                ')}
+                ${navLinks.map(l => {
+                    const isCurrent = l.href === page || (inSubdir && l.href === 'projects.html');
+                    return `<a href="${l.href}"${isCurrent ? ' class="nav-current"' : ''}>${l.label}</a>`;
+                }).join('\n                ')}
                 <a href="#contact" class="nav-cta">Get in Touch</a>
             </div>
         `;

@@ -97,111 +97,7 @@
             transform: translateX(4px);
         }
 
-        /* === WORK === */
-        .work {
-            background: var(--near-black);
-            padding: 120px 48px;
-        }
-
-        .work-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .project {
-            margin-bottom: 80px;
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 0;
-        }
-
-        .project:last-child {
-            margin-bottom: 0;
-        }
-
-        .project-image {
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--surface);
-            aspect-ratio: 16 / 9;
-            position: relative;
-        }
-
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
-
-        .project:hover .project-image img {
-            transform: scale(1.02);
-        }
-
-        .project-image iframe {
-            width: 142.85%;
-            height: 142.85%;
-            border: none;
-            pointer-events: none;
-            transform: scale(0.7);
-            transform-origin: top left;
-        }
-
-        .project-grid-two .project-image iframe {
-            width: 200%;
-            height: 200%;
-            transform: scale(0.5);
-        }
-
-        .project-info {
-            padding: 24px 0 0;
-            display: flex;
-            align-items: baseline;
-            justify-content: space-between;
-            gap: 24px;
-        }
-
-        .project-name {
-            font-family: var(--display);
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: -0.01em;
-            color: var(--text-warm);
-        }
-
-        .project-desc {
-            font-size: 14px;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
-
-        .project-sector {
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--text-muted);
-            white-space: nowrap;
-        }
-
-        /* Alternating project layouts */
-        .project-grid-two {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 32px;
-        }
-
-        .project-grid-two .project {
-            margin-bottom: 0;
-        }
-
-        .project-grid-two .project-image {
-            aspect-ratio: 4 / 3;
-        }
-
-        /* === HOW IT WORKS === */
+/* === HOW IT WORKS === */
         .how {
             background: var(--black);
             padding: 120px 48px;
@@ -396,16 +292,10 @@
         /* === RESPONSIVE (page-specific) === */
         @media (max-width: 900px) {
             .hero { padding: 140px 24px 80px; }
-            .work { padding: 80px 24px; }
-            .how { padding: 80px 24px; }
+.how { padding: 80px 24px; }
             .about { padding: 80px 24px; }
 
-            .project-grid-two {
-                grid-template-columns: 1fr;
-                gap: 60px;
-            }
-
-            .how-content {
+.how-content {
                 grid-template-columns: 1fr;
                 gap: 48px;
             }
@@ -424,10 +314,6 @@
                 gap: 24px;
             }
 
-            .project-info {
-                flex-direction: column;
-                gap: 4px;
-            }
         }
 
         @media (max-width: 600px) {
@@ -437,96 +323,17 @@
 </head>
 <body>
 
-    <!-- NAV -->
-    <nav id="nav">
-        <a href="#" class="nav-logo"><span class="prefix">/</span>RedSlash</a>
-        <button class="nav-hamburger" aria-label="Menu">
-            <span></span><span></span><span></span>
-        </button>
-        <div class="nav-links">
-            <a href="#work">Work</a>
-            <a href="how-it-works.html">How It Works</a>
-            <a href="faq.html">Q&amp;A</a>
-            <a href="about.html">About</a>
-            <a href="#contact" class="nav-cta">Get in Touch</a>
-        </div>
-    </nav>
+    <nav id="nav"></nav>
 
     <!-- S1: HERO -->
     <section class="hero">
         <p class="hero-label">Independence, not dependency.</p>
         <h1>Your business deserves creative that competes with the&nbsp;big&nbsp;players</h1>
         <p class="hero-sub">I build brands, websites, and everything that goes with them — at the quality level that major agencies charge six figures for. One person. Twenty years of broadcast experience. A fraction of the&nbsp;cost.</p>
-        <a href="#work" class="hero-cta">See the work <span class="arrow">&darr;</span></a>
+        <a href="projects.html" class="hero-cta">See the projects <span class="arrow">&rarr;</span></a>
     </section>
 
-    <!-- S2: THE WORK -->
-    <section class="work" id="work">
-        <div class="work-inner">
-            <p class="section-label reveal">Selected Work</p>
-            <h2 class="section-heading reveal">Four industries.<br>Four visual languages.<br>One studio.</h2>
-            <p class="section-intro reveal">Every project starts with the same question: who is this actually for? The answer shapes everything — strategy, structure, design, every word on the page.</p>
-
-            <!-- Project 1: FFF — full width (top slot) -->
-            <div class="project reveal">
-                <div class="project-image">
-                    <iframe src="https://redslashstudio.github.io/fighting-for-a-free-future/index.html" loading="lazy"></iframe>
-                </div>
-                <div class="project-info">
-                    <div>
-                        <span class="project-name">Fighting for a Free Future</span>
-                        <span class="project-desc"> — 8-page editorial media brand. Political commentary with edge.</span>
-                    </div>
-                    <span class="project-sector">Media</span>
-                </div>
-            </div>
-
-            <!-- Projects 2 & 3: side by side -->
-            <div class="project-grid-two reveal">
-                <div class="project">
-                    <div class="project-image">
-                        <iframe src="https://redslashstudio.github.io/mffreeman/" loading="lazy"></iframe>
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <span class="project-name">MF Freeman</span>
-                            <span class="project-desc"> — Zero-carbon homes. Award-winning developer.</span>
-                        </div>
-                        <span class="project-sector">Property</span>
-                    </div>
-                </div>
-
-                <div class="project">
-                    <div class="project-image">
-                        <iframe src="https://mrcharliepalmer.github.io/Your-ADHD-journey/" loading="lazy"></iframe>
-                    </div>
-                    <div class="project-info">
-                        <div>
-                            <span class="project-name">CareADHD</span>
-                            <span class="project-desc"> — Patient journey. Healthcare made human.</span>
-                        </div>
-                        <span class="project-sector">Healthcare</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 4: Podcast Show — full width -->
-            <div class="project reveal" style="margin-top: 80px;">
-                <div class="project-image">
-                    <iframe src="https://mrcharliepalmer.github.io/TPS26-website-redesign/index.html" loading="lazy"></iframe>
-                </div>
-                <div class="project-info">
-                    <div>
-                        <span class="project-name">The Podcast Show London</span>
-                        <span class="project-desc"> — 12-page festival site. 10,000 attendees. 450+ speakers.</span>
-                    </div>
-                    <span class="project-sector">Events</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- S3: HOW IT WORKS -->
+    <!-- S2: HOW IT WORKS -->
     <section class="how" id="how">
         <div class="how-inner">
             <p class="section-label reveal">How It Works</p>
@@ -635,96 +442,9 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-left">
-            <span class="footer-logo"><span class="prefix">/</span>RedSlash</span>
-            <span class="footer-divider"></span>
-            <span class="footer-partners-label">Built in partnership with</span>
-            <div class="footer-partners">
-                <a href="https://audiencestrategies.com" target="_blank" rel="noopener"><img src="assets/H Audience Strategies White.png" alt="Audience Strategies"></a>
-                <a href="https://steadman.ai" target="_blank" rel="noopener"><img src="assets/steadman-wordmark-cream.png" alt="Steadman"></a>
-            </div>
-        </div>
-        <span class="footer-copy">&copy; 2026 Red Slash Studio</span>
-    </footer>
+    <footer></footer>
 
-    <script>
-        // Nav scroll effect
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 60);
-        });
-
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -40px 0px'
-        });
-        reveals.forEach(el => observer.observe(el));
-
-        // Form submission
-        const form = document.getElementById('contact-form');
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('.form-submit');
-            btn.textContent = 'Sending...';
-            btn.disabled = true;
-            try {
-                const res = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: { 'Accept': 'application/json' }
-                });
-                if (res.ok) {
-                    btn.textContent = 'Sent ✓';
-                    btn.style.background = 'var(--border)';
-                    form.reset();
-                } else {
-                    btn.textContent = 'Something went wrong — try emailing instead';
-                    btn.style.background = 'var(--border)';
-                }
-            } catch {
-                btn.textContent = 'Something went wrong — try emailing instead';
-                btn.style.background = 'var(--border)';
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(a => {
-            a.addEventListener('click', e => {
-                e.preventDefault();
-                const target = document.querySelector(a.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Mobile hamburger menu
-        const hamburger = document.querySelector('.nav-hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        if (hamburger) {
-            hamburger.addEventListener('click', () => {
-                hamburger.classList.toggle('open');
-                navLinks.classList.toggle('open');
-            });
-            navLinks.querySelectorAll('a').forEach(a => {
-                a.addEventListener('click', () => {
-                    hamburger.classList.remove('open');
-                    navLinks.classList.remove('open');
-                });
-            });
-        }
-    </script>
+    <script src="shared.js"></script>
 
 </body>
 </html>

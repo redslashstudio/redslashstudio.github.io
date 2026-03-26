@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — /RedSlash Studio</title>
+    <meta name="description" content="Selected projects from Red Slash Studio. Four industries, four visual languages, one studio.">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* === PROJECTS === */
+        .projects-hero {
+            padding: 160px 48px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projects {
+            background: var(--near-black);
+            padding: 0 48px 120px;
+        }
+
+        .projects-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project {
+            margin-bottom: 80px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+        }
+
+        .project:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-image {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface);
+            aspect-ratio: 16 / 9;
+            position: relative;
+        }
+
+        .project-image iframe {
+            width: 142.85%;
+            height: 142.85%;
+            border: none;
+            pointer-events: none;
+            transform: scale(0.7);
+            transform-origin: top left;
+        }
+
+        .project-grid-two .project-image iframe {
+            width: 200%;
+            height: 200%;
+            transform: scale(0.5);
+        }
+
+        .project-info {
+            padding: 24px 0 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .project-name {
+            font-family: var(--display);
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-warm);
+        }
+
+        .project-desc {
+            font-size: 14px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .project-sector {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .project-grid-two {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .project-grid-two .project {
+            margin-bottom: 0;
+        }
+
+        .project-grid-two .project-image {
+            aspect-ratio: 4 / 3;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .projects-hero { padding: 140px 24px 60px; }
+            .projects { padding: 0 24px 80px; }
+
+            .project-grid-two {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .project-info {
+                flex-direction: column;
+                gap: 4px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav"></nav>
+
+    <!-- HERO -->
+    <section class="projects-hero">
+        <p class="section-label reveal">Selected Projects</p>
+        <h2 class="section-heading reveal">Four industries.<br>Four visual languages.<br>One studio.</h2>
+        <p class="section-intro reveal">Every project starts with the same question: who is this actually for? The answer shapes everything — strategy, structure, design, every word on the page.</p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects">
+        <div class="projects-inner">
+
+            <!-- Project 1: FFF — full width -->
+            <a href="projects/fighting-for-a-free-future.html" class="project reveal" style="text-decoration: none; color: inherit;">
+                <div class="project-image">
+                    <iframe src="https://redslashstudio.github.io/fighting-for-a-free-future/index.html" loading="lazy"></iframe>
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-name">Fighting for a Free Future</span>
+                        <span class="project-desc"> — A political movement with real momentum, but a website that didn't show it. Rebuilt as a media brand.</span>
+                    </div>
+                    <span class="project-sector">Media</span>
+                </div>
+            </a>
+
+            <!-- Projects 2 & 3: side by side -->
+            <div class="project-grid-two reveal">
+                <div class="project">
+                    <div class="project-image">
+                        <iframe src="https://redslashstudio.github.io/mffreeman/" loading="lazy"></iframe>
+                    </div>
+                    <div class="project-info">
+                        <div>
+                            <span class="project-name">MF Freeman</span>
+                            <span class="project-desc"> — Zero-carbon homes. Award-winning developer.</span>
+                        </div>
+                        <span class="project-sector">Property</span>
+                    </div>
+                </div>
+
+                <div class="project">
+                    <div class="project-image">
+                        <iframe src="https://mrcharliepalmer.github.io/Your-ADHD-journey/" loading="lazy"></iframe>
+                    </div>
+                    <div class="project-info">
+                        <div>
+                            <span class="project-name">CareADHD</span>
+                            <span class="project-desc"> — Patient journey. Healthcare made human.</span>
+                        </div>
+                        <span class="project-sector">Healthcare</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4: Podcast Show — full width -->
+            <div class="project reveal" style="margin-top: 80px;">
+                <div class="project-image">
+                    <iframe src="https://mrcharliepalmer.github.io/TPS26-website-redesign/index.html" loading="lazy"></iframe>
+                </div>
+                <div class="project-info">
+                    <div>
+                        <span class="project-name">The Podcast Show London</span>
+                        <span class="project-desc"> — 12-page festival site. 10,000 attendees. 450+ speakers.</span>
+                    </div>
+                    <span class="project-sector">Events</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <p class="section-label reveal">Get in Touch</p>
+            <h2 class="reveal">Tell me about<br>your business</h2>
+            <p class="contact-sub reveal">No pitch. No commitment. Just a conversation about where you are and what could be different.</p>
+
+            <a href="mailto:hello@redslashstudio.com" class="contact-email reveal">hello@redslashstudio.com</a>
+
+            <p class="contact-or reveal">or</p>
+
+            <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mwvwedqe" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Tom Richardson">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tom@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">What does your business do?</label>
+                    <textarea id="message" name="message" placeholder="Tell me a bit about your business and what you're looking for..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message <span class="arrow">&rarr;</span></button>
+            </form>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script src="shared.js"></script>
+
+</body>
+</html>

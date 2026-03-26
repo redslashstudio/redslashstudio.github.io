@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="../">
+    <title>Fighting for a Free Future — /RedSlash Studio</title>
+    <meta name="description" content="Case study: How Red Slash Studio rebuilt a political movement's website as an editorial media brand.">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* === HERO === */
+        .cs-hero {
+            padding: 160px 48px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cs-hero h1 {
+            font-family: var(--display);
+            font-size: clamp(42px, 6vw, 72px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            color: var(--text-warm);
+            max-width: 860px;
+            margin-bottom: 32px;
+        }
+
+        .cs-hero-sub {
+            font-size: clamp(17px, 2vw, 20px);
+            font-weight: 300;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 40px;
+        }
+
+        .cs-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .cs-tag {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+
+        /* === CHALLENGE === */
+        .cs-challenge {
+            background: var(--off-white);
+            padding: 120px 48px;
+        }
+
+        .cs-challenge-inner {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .cs-challenge p {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.8;
+            color: #3A3632;
+            margin-bottom: 24px;
+        }
+
+        .cs-challenge p:last-child {
+            margin-bottom: 0;
+        }
+
+        .cs-challenge p strong {
+            font-weight: 600;
+            color: #1A1816;
+        }
+
+        /* === APPROACH === */
+        .cs-approach {
+            background: var(--near-black);
+            padding: 120px 48px;
+        }
+
+        .cs-approach-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cs-approach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-top: 64px;
+        }
+
+        .cs-approach-left {
+            max-width: 520px;
+        }
+
+        .cs-move {
+            margin-bottom: 48px;
+        }
+
+        .cs-move:last-child {
+            margin-bottom: 0;
+        }
+
+        .cs-move-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+
+        .cs-move h3 {
+            font-family: var(--display);
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            color: var(--text-warm);
+            margin-bottom: 12px;
+        }
+
+        .cs-move p {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        .cs-approach-right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .cs-pullquote {
+            font-family: var(--display);
+            font-size: clamp(26px, 3vw, 36px);
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            color: var(--text-warm);
+            border-left: 3px solid var(--red);
+            padding-left: 32px;
+        }
+
+        /* === BUILD === */
+        .cs-build {
+            background: var(--black);
+            padding: 120px 48px;
+        }
+
+        .cs-build-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .cs-build-iframe {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--surface);
+            aspect-ratio: 16 / 9;
+            position: relative;
+            margin-top: 64px;
+        }
+
+        .cs-build-iframe iframe {
+            width: 142.85%;
+            height: 142.85%;
+            border: none;
+            pointer-events: none;
+            transform: scale(0.7);
+            transform-origin: top left;
+        }
+
+        .cs-deliverables {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 48px;
+        }
+
+        .cs-deliverable {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 8px 16px;
+            background: var(--surface);
+            border-radius: 4px;
+            border: 1px solid var(--border);
+        }
+
+        /* === RESPONSE === */
+        .cs-response {
+            background: var(--near-black);
+            padding: 120px 48px;
+        }
+
+        .cs-response-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cs-quote {
+            font-family: var(--display);
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-warm);
+            margin-bottom: 32px;
+        }
+
+        .cs-quote-mark {
+            color: var(--red);
+            display: block;
+            font-size: 72px;
+            line-height: 0.5;
+            margin-bottom: 24px;
+        }
+
+        .cs-attribution {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .cs-attribution strong {
+            color: var(--text-warm);
+            font-weight: 600;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .cs-hero { padding: 140px 24px 80px; }
+            .cs-challenge { padding: 80px 24px; }
+            .cs-approach { padding: 80px 24px; }
+            .cs-build { padding: 80px 24px; }
+            .cs-response { padding: 80px 24px; }
+
+            .cs-approach-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .cs-hero h1 { font-size: 36px; }
+            .cs-quote { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav"></nav>
+
+    <!-- HERO -->
+    <section class="cs-hero">
+        <p class="section-label reveal">Case Study</p>
+        <h1 class="reveal">Fighting for a Free&nbsp;Future</h1>
+        <p class="cs-hero-sub reveal">A political movement with 2,400 subscribers, two podcasts, seven writers, and a coalition of think tanks — but a website that said none of it.</p>
+        <div class="cs-tags reveal">
+            <span class="cs-tag">Media</span>
+            <span class="cs-tag">Brand</span>
+            <span class="cs-tag">Website</span>
+            <span class="cs-tag">Content System</span>
+            <span class="cs-tag">Visual Identity</span>
+        </div>
+    </section>
+
+    <!-- THE CHALLENGE -->
+    <section class="cs-challenge">
+        <div class="cs-challenge-inner">
+            <p class="section-label reveal" style="color: var(--red);">The Challenge</p>
+            <h2 class="section-heading reveal" style="color: #1A1816;">The energy lived everywhere except the front&nbsp;door</h2>
+
+            <p class="reveal">Steve Baker — former Cabinet minister, RAF engineer, software architect at Lehman Brothers — had built something real. A Substack with thousands of subscribers. A podcast pulling in serious guests. Seven writers producing weekly arguments about liberty, governance, and the state of British politics. Institutional backing from the Adam Smith Institute, the IEA, the Centre for Policy Studies.</p>
+
+            <p class="reveal">But the website didn't reflect any of it. It was a splash page — a logo, four icons, and a footer. No voice, no proposition, no context. If you didn't already know what Fighting for a Free Future was, the site gave you no reason to find out.</p>
+
+            <p class="reveal"><strong>The real problem wasn't design — it was audience.</strong> The people most likely to discover the movement (politically curious professionals in their twenties and thirties) had no on-ramp. The site spoke to insiders. The growth audience was invisible.</p>
+        </div>
+    </section>
+
+    <!-- THE APPROACH -->
+    <section class="cs-approach">
+        <div class="cs-approach-inner">
+            <p class="section-label reveal">The Approach</p>
+            <h2 class="section-heading reveal">From think tank to media&nbsp;brand</h2>
+
+            <div class="cs-approach-content">
+                <div class="cs-approach-left">
+                    <div class="cs-move reveal">
+                        <p class="cs-move-label">Audience</p>
+                        <h3>Find the growth audience</h3>
+                        <p>Mapped four audience segments. The existing base — conservative activists, think tank insiders — were already finding their way in. The real opportunity was politically curious young professionals who'd never heard of Steve Baker. They needed to understand what this was in five seconds, not five minutes.</p>
+                    </div>
+
+                    <div class="cs-move reveal">
+                        <p class="cs-move-label">Positioning</p>
+                        <h3>Media brand, not think tank</h3>
+                        <p>The content had the energy of UnHerd or The Spectator — assertive, structured, intellectually serious. But the website looked institutional. The repositioning was clear: build a media brand that happens to have a political mission, not a political organisation that happens to publish.</p>
+                    </div>
+
+                    <div class="cs-move reveal">
+                        <p class="cs-move-label">Creative</p>
+                        <h3>Build the visual language</h3>
+                        <p>Navy and orange. Bebas Neue headlines. Duotone writer portraits in a unified style so seven different people look like they belong to the same publication. Typographic podcast cover art. Editorial illustrations in a screen-print aesthetic. Every visual decision serves the positioning: serious, insurgent, professional.</p>
+                    </div>
+                </div>
+
+                <div class="cs-approach-right reveal">
+                    <p class="cs-pullquote">The site needed to make someone who'd never heard of this movement feel, in five seconds, that these people are serious — and that they're angry about the right things.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE BUILD -->
+    <section class="cs-build">
+        <div class="cs-build-inner">
+            <p class="section-label reveal">The Build</p>
+            <h2 class="section-heading reveal">Eight pages. One editorial&nbsp;system.</h2>
+
+            <div class="cs-build-iframe reveal">
+                <iframe src="https://redslashstudio.github.io/fighting-for-a-free-future/index.html" loading="lazy"></iframe>
+            </div>
+
+            <div class="cs-deliverables reveal">
+                <span class="cs-deliverable">8-page editorial website</span>
+                <span class="cs-deliverable">Audience strategy</span>
+                <span class="cs-deliverable">Visual identity</span>
+                <span class="cs-deliverable">Writer portraits</span>
+                <span class="cs-deliverable">Podcast cover art system</span>
+                <span class="cs-deliverable">211+ article archive</span>
+                <span class="cs-deliverable">Mission page</span>
+                <span class="cs-deliverable">Content architecture</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- THE RESPONSE -->
+    <section class="cs-response">
+        <div class="cs-response-inner">
+            <p class="cs-quote reveal">This project was unsolicited.<br>I saw the gap and closed&nbsp;it.</p>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <p class="section-label reveal">Get in Touch</p>
+            <h2 class="reveal">Got a story that<br>isn't being told?</h2>
+            <p class="contact-sub reveal">If your business has outgrown how it looks, let's talk about closing the gap.</p>
+
+            <a href="mailto:hello@redslashstudio.com" class="contact-email reveal">hello@redslashstudio.com</a>
+
+            <p class="contact-or reveal">or</p>
+
+            <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mwvwedqe" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Tom Richardson">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tom@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">What does your business do?</label>
+                    <textarea id="message" name="message" placeholder="Tell me a bit about your business and what you're looking for..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message <span class="arrow">&rarr;</span></button>
+            </form>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script src="shared.js"></script>
+
+</body>
+</html>
