@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions Worth Answering — /RedSlash Studio</title>
+    <meta name="description" content="The questions that come up most — answered honestly. How it works, what you get, and whether it's right for you.">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Questions Worth Answering — /RedSlash Studio">
+    <meta property="og:description" content="The questions that come up most — answered honestly.">
+    <meta property="og:image" content="https://redslashstudio.com/assets/og-image.png">
+    <meta property="og:url" content="https://redslashstudio.com/faq.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* === HERO === */
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 180px 48px 100px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--display);
+            font-size: clamp(44px, 7vw, 82px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.06;
+            color: var(--text-warm);
+            margin-bottom: 32px;
+            max-width: 800px;
+        }
+
+        .hero-sub {
+            font-size: clamp(17px, 2vw, 20px);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 540px;
+        }
+
+        /* === Q&amp;A ENTRIES === */
+
+        /* Layout A: Question left, answer right — wide two-column */
+        .faq-entry-wide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            padding: 120px 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-entry-wide .faq-question-col {
+            display: flex;
+            align-items: flex-start;
+            padding-top: 8px;
+        }
+
+        .faq-question {
+            font-family: var(--display);
+            font-size: clamp(28px, 3.5vw, 42px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text-warm);
+        }
+
+        .faq-answer p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-answer strong {
+            color: var(--text-warm);
+            font-weight: 500;
+        }
+
+        /* Layout B: Narrow centred — editorial column */
+        .faq-entry-narrow {
+            padding: 120px 48px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-entry-narrow .faq-question {
+            margin-bottom: 40px;
+        }
+
+        /* Layout C: Full-width pullquote moment */
+        .faq-pullquote {
+            padding: 100px 48px;
+            text-align: center;
+        }
+
+        .faq-pullquote-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-pullquote blockquote {
+            font-family: var(--display);
+            font-size: clamp(28px, 4vw, 52px);
+            font-weight: 600;
+            font-style: italic;
+            letter-spacing: -0.02em;
+            line-height: 1.25;
+            color: var(--text-warm);
+        }
+
+        .faq-pullquote .attribution {
+            margin-top: 24px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+        }
+
+        /* Layout D: Question full-width top, answer columns below */
+        .faq-entry-stacked {
+            padding: 120px 48px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .faq-entry-stacked .faq-question {
+            margin-bottom: 48px;
+            max-width: 700px;
+        }
+
+        .faq-entry-stacked .faq-answer-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+        }
+
+        /* Section dividers via background alternation */
+        .bg-black { background: var(--black); }
+        .bg-surface { background: var(--surface); }
+        .bg-near-black { background: var(--near-black); }
+
+        blockquote.red-text {
+            color: var(--red);
+        }
+
+        /* Small red number labels */
+        .faq-number {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--red-label);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* === LIST STYLING === */
+        .faq-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .faq-list li {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 8px;
+        }
+
+        .faq-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background: var(--red);
+            border-radius: 50%;
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .hero { padding: 140px 24px 80px; }
+
+            .faq-entry-wide {
+                grid-template-columns: 1fr;
+                gap: 32px;
+                padding: 80px 24px;
+            }
+
+            .faq-entry-narrow {
+                padding: 80px 24px;
+            }
+
+            .faq-pullquote {
+                padding: 80px 24px;
+            }
+
+            .faq-entry-stacked {
+                padding: 80px 24px;
+            }
+
+            .faq-entry-stacked .faq-answer-columns {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .faq-question {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="index.html" class="nav-logo"><span class="prefix">/</span>RedSlash</a>
+        <button class="nav-hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html#work">Work</a>
+            <a href="how-it-works.html">How It Works</a>
+            <a href="faq.html" class="nav-current">Q&amp;A</a>
+            <a href="index.html#about">About</a>
+            <a href="#contact" class="nav-cta">Get in Touch</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="section-label reveal">The Real Questions</p>
+        <h1 class="reveal">Questions worth&nbsp;answering</h1>
+        <p class="hero-sub reveal">The ones that come up most — answered honestly.</p>
+    </section>
+
+
+    <!-- Q1: Is this for someone my size? -->
+    <section class="bg-surface">
+        <div class="faq-entry-wide reveal">
+            <div class="faq-question-col">
+                <div>
+                    <span class="faq-number">01</span>
+                    <h2 class="faq-question">"Is this actually for someone my&nbsp;size?"</h2>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <p>Yes. That's the whole point.</p>
+                <p>The agencies that do this quality of work charge six figures and want a six-month engagement. The template platforms give you a DIY tool and wish you luck. There's almost nothing in between — and that's the gap I built this to fill.</p>
+                <p>If you run a business with real ambition but not an enterprise budget, this was built for you. Most of my clients have somewhere between 1 and 30 people. They know their brand isn't working hard enough. They just couldn't previously afford to fix it properly.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q2: I'm not technical -->
+    <section class="bg-black">
+        <div class="faq-entry-narrow reveal">
+            <span class="faq-number">02</span>
+            <h2 class="faq-question">"I'm not technical — will I actually be able to use&nbsp;this?"</h2>
+            <div class="faq-answer" style="margin-top: 40px;">
+                <p>You don't need to be.</p>
+                <p>After handover, you talk to your brand system the same way you'd talk to a colleague. You describe what you need in plain language — "I need a slide deck for a pitch next Tuesday" or "can we update the homepage to mention the new service?" — and it happens.</p>
+                <p>No code. No dashboards. No interface you need training on. If you can write an email, you can use this.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q3: What if I don't like it? -->
+    <section class="bg-surface">
+        <div class="faq-entry-wide reveal">
+            <div class="faq-question-col">
+                <div>
+                    <span class="faq-number">03</span>
+                    <h2 class="faq-question">"What happens if I don't like what you&nbsp;build?"</h2>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <p>Then we haven't finished yet.</p>
+                <p>The process is built around checkpoints — moments where you see the work, react to it, and steer. You don't get a big reveal at the end and hope for the best. You're shaping it throughout.</p>
+                <p>And honestly, the checkpoints are where the best work happens. Your gut reaction to a first draft tells me more about what your brand needs than any brief ever could.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q4: How is this different from a freelancer? -->
+    <section class="bg-black">
+        <div class="faq-entry-stacked reveal">
+            <span class="faq-number">04</span>
+            <h2 class="faq-question">"How is this different from hiring a&nbsp;freelancer?"</h2>
+            <div class="faq-answer-columns">
+                <div class="faq-answer">
+                    <p>A freelancer gives you their time. I give you a team that stays after I leave.</p>
+                    <p>When the project ends, you don't just get files — you get three specialists built from twenty years of broadcast experience.</p>
+                </div>
+                <div class="faq-answer">
+                    <p>An Audience Strategist who knows who you're talking to. A Brand Strategist who knows what you need to say. A Creative Director who makes sure everything looks like it came from an agency that charges ten times what you paid.</p>
+                    <p>They know your brand because they were built inside it. And they're yours to keep.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q5: What do I actually get? -->
+    <section class="bg-surface">
+        <div class="faq-entry-narrow reveal">
+            <span class="faq-number">05</span>
+            <h2 class="faq-question">"What do I actually get? Like, specifically."</h2>
+            <div class="faq-answer" style="margin-top: 40px;">
+                <p>A website, yes. But also everything that goes with it.</p>
+                <ul class="faq-list">
+                    <li>Brand strategy</li>
+                    <li>Audience profiles</li>
+                    <li>Visual identity</li>
+                    <li>Copywriting</li>
+                    <li>Content tools</li>
+                    <li>Marketing assets</li>
+                    <li>Social templates</li>
+                    <li>Slide decks</li>
+                </ul>
+                <p style="margin-top: 20px;">The website is the foundation layer — the place where your brand DNA gets encoded. Everything else flows from that. Need a pitch deck six months later? It already knows your brand, your audience, your voice.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q6: Can I change things after? -->
+    <section class="bg-black">
+        <div class="faq-entry-wide reveal">
+            <div class="faq-question-col">
+                <div>
+                    <span class="faq-number">06</span>
+                    <h2 class="faq-question">"Can I change things after, or am I locked&nbsp;in?"</h2>
+                </div>
+            </div>
+            <div class="faq-answer">
+                <p>You're never locked in. That's the point of the handover.</p>
+                <p>After the build, you own everything. You can update your site, create new pages, build documents, get strategic advice — all through the system I set up for you. You don't need to come back to me for every small change.</p>
+                <p>And if you want to, I'm here. But the goal is independence, not dependency.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q7: What's the catch? -->
+    <section class="bg-surface">
+        <div class="faq-entry-stacked reveal">
+            <span class="faq-number">07</span>
+            <h2 class="faq-question">"This sounds too good — what's the&nbsp;catch?"</h2>
+            <div class="faq-answer-columns">
+                <div class="faq-answer">
+                    <p>Fair question. Here's what this isn't:</p>
+                    <p>It isn't a full-service agency. You won't get a team of twelve people in a Slack channel. You get one person with twenty years of experience and an approach that multiplies what one person can do.</p>
+                </div>
+                <div class="faq-answer">
+                    <p>It isn't instant. Good strategy takes a bit of time — we're talking days, not months, but it's not same-day delivery.</p>
+                    <p>And it isn't for everyone. If you want someone to execute a design you've already decided on, you want a production house. If you want someone to tell you what your brand actually needs — and then build it at broadcast quality — that's what this is.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Q8: What if my business changes? -->
+    <section class="bg-black">
+        <div class="faq-entry-narrow reveal">
+            <span class="faq-number">08</span>
+            <h2 class="faq-question">"What if my business changes — does everything&nbsp;break?"</h2>
+            <div class="faq-answer" style="margin-top: 40px;">
+                <p>No. That's what the strategy layer is for.</p>
+                <p>Your brand system isn't a static set of files. It understands your audience, your positioning, your voice. When your business evolves — new service, new market, pivot — the system adapts because the strategic thinking is built in, not bolted on.</p>
+                <p>You're not starting from scratch. You're building on a foundation that was designed to grow with you.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <p class="section-label reveal">Get in Touch</p>
+            <h2 class="reveal">Still got<br>questions?</h2>
+            <p class="contact-sub reveal">The best way to find out if this is right for you is a conversation. No pitch. No commitment.</p>
+
+            <a href="mailto:hello@redslashstudio.com" class="contact-email reveal">hello@redslashstudio.com</a>
+
+            <p class="contact-or reveal">or</p>
+
+            <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mwvwedqe" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="Tom Richardson">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tom@example.com">
+                </div>
+                <div class="form-group">
+                    <label for="message">What's on your mind?</label>
+                    <textarea id="message" name="message" placeholder="Ask me anything about how this works..."></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message <span class="arrow">&rarr;</span></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <span class="footer-logo"><span class="prefix">/</span>RedSlash</span>
+        <span class="footer-copy">&copy; 2026 Red Slash Studio</span>
+    </footer>
+
+    <script>
+        // Nav scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.15,
+            rootMargin: '0px 0px -40px 0px'
+        });
+        reveals.forEach(el => observer.observe(el));
+
+        // Form submission
+        const form = document.getElementById('contact-form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = form.querySelector('.form-submit');
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    body: new FormData(form),
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (res.ok) {
+                    btn.textContent = 'Sent ✓';
+                    btn.style.background = 'var(--border)';
+                    form.reset();
+                } else {
+                    btn.textContent = 'Something went wrong — try emailing instead';
+                    btn.style.background = 'var(--border)';
+                }
+            } catch {
+                btn.textContent = 'Something went wrong — try emailing instead';
+                btn.style.background = 'var(--border)';
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                e.preventDefault();
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile hamburger menu
+        const hamburger = document.querySelector('.nav-hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('open');
+                navLinks.classList.toggle('open');
+            });
+            navLinks.querySelectorAll('a').forEach(a => {
+                a.addEventListener('click', () => {
+                    hamburger.classList.remove('open');
+                    navLinks.classList.remove('open');
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

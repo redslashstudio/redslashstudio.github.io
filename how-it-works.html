@@ -324,42 +324,111 @@
             color: var(--text-muted);
         }
 
-        /* === DIALOGUE — deep black, immersive === */
-        .dialogue {
-            background: #060606;
+        /* === DIALOGUE — scenario cards, split layout === */
+        .scenario {
             padding: 120px 48px;
-            overflow: hidden;
             position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
         }
 
-        .dialogue::before {
+        .scenario.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scenario-grid {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+        }
+
+        .scenario--flipped .scenario-grid {
+            direction: rtl;
+        }
+
+        .scenario--flipped .scenario-grid > * {
+            direction: ltr;
+        }
+
+        /* Scene backgrounds */
+        .scenario--creative {
+            background: #050505;
+        }
+
+        .scenario--audience {
+            background: var(--surface);
+        }
+
+        .scenario--audience::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.5) 100%);
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .scenario--brand {
+            background: #0C0A09;
+        }
+
+        .scenario--brand::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 50%, rgba(226, 54, 54, 0.035) 0%, transparent 60%);
             pointer-events: none;
         }
 
-        .dialogue-inner {
-            max-width: 680px;
-            margin: 0 auto;
-            position: relative;
+        /* Scenario title */
+        .scenario-title {
+            padding-top: 0;
         }
 
-        .dialogue-inner::before {
-            content: '';
-            position: absolute;
-            left: 18px;
-            top: 200px;
-            bottom: 80px;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, var(--red) 20%, var(--red) 80%, transparent);
-            opacity: 0.15;
+        .scenario-context {
+            font-family: var(--display);
+            font-size: clamp(26px, 3.5vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-warm);
+            margin-bottom: 16px;
         }
 
+        .scenario-lens-tag {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .scenario-lens-tag .slash {
+            color: var(--red);
+        }
+
+        .scenario-description {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 380px;
+        }
+
+        /* Dialogue header */
         .dialogue-header {
             text-align: center;
-            margin-bottom: 72px;
+            padding: 120px 48px 80px;
+            max-width: 640px;
+            margin: 0 auto;
         }
 
         .dialogue-header .section-intro {
@@ -368,74 +437,61 @@
             margin-right: auto;
         }
 
-        .dialogue-exchange {
-            margin-bottom: 56px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .dialogue-exchange:last-child {
-            margin-bottom: 0;
-        }
-
-        .dialogue-exchange.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        /* Dialogue exchange */
         .dialogue-prompt {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 24px;
         }
 
         .dialogue-prompt-avatar {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            background: var(--surface);
+            background: var(--surface-light);
             border: 1px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 600;
             color: var(--text-muted);
         }
 
         .dialogue-prompt-content {
-            padding: 18px 22px;
-            background: var(--surface);
+            padding: 16px 20px;
+            background: var(--surface-light);
             border: 1px solid var(--border);
             border-radius: 2px 12px 12px 12px;
             flex-grow: 1;
         }
 
+        .scenario--audience .dialogue-prompt-avatar,
+        .scenario--audience .dialogue-prompt-content {
+            background: var(--surface-light);
+            border-color: #333330;
+        }
+
         .dialogue-prompt-text {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 500;
             line-height: 1.5;
             color: var(--text-warm);
             min-height: 1.5em;
         }
 
-        .dialogue-prompt-text .tw-cursor {
-            font-size: 16px;
-        }
-
         .dialogue-response {
             display: flex;
             align-items: flex-start;
-            gap: 16px;
-            padding-left: 52px;
+            gap: 14px;
+            padding-left: 48px;
         }
 
         .dialogue-response-avatar {
-            width: 36px;
-            height: 36px;
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
             background: var(--red-subtle);
             border: 1px solid rgba(226, 54, 54, 0.2);
@@ -444,7 +500,7 @@
             justify-content: center;
             flex-shrink: 0;
             font-family: var(--display);
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 800;
         }
 
@@ -454,13 +510,15 @@
 
         .dialogue-response-content {
             flex-grow: 1;
+            border-left: 2px solid var(--red);
+            padding-left: 16px;
         }
 
         .dialogue-response-label {
             font-family: var(--display);
             font-size: 13px;
             font-weight: 600;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .dialogue-response-label .fixed {
@@ -475,16 +533,53 @@
         .dialogue-response-text {
             font-size: 15px;
             font-weight: 400;
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--text-secondary);
             opacity: 0;
             transform: translateY(6px);
-            transition: opacity 0.35s ease 0.15s, transform 0.35s ease 0.15s;
+            transition: opacity 0.5s ease 0.15s, transform 0.5s ease 0.15s;
         }
 
-        .dialogue-exchange.typed .dialogue-response-text {
+        .dialogue-response-text + .dialogue-response-text {
+            margin-top: 10px;
+        }
+
+        .scenario.typed .dialogue-response-text {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Audience data callout */
+        .audience-data {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding: 10px 14px;
+            background: rgba(184, 178, 169, 0.05);
+            border: 1px solid rgba(184, 178, 169, 0.12);
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--warm-mid);
+            opacity: 0;
+            transition: opacity 0.4s ease 0.7s;
+        }
+
+        .scenario--audience.typed .audience-data {
+            opacity: 1;
+        }
+
+        .audience-data-icon {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: rgba(184, 178, 169, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 9px;
         }
 
         /* === THE BUILD — warm surface with grain === */
@@ -590,7 +685,8 @@
             .problem { padding: 80px 24px; }
             .statement { padding: 72px 24px; }
             .lenses { padding: 80px 24px; }
-            .dialogue { padding: 80px 24px; }
+            .scenario { padding: 80px 24px; }
+            .dialogue-header { padding: 80px 24px 60px; }
             .build { padding: 80px 24px; }
 
             .lenses-grid {
@@ -608,6 +704,15 @@
 
             .lens-card:hover {
                 border-top-color: #D4D0CB;
+            }
+
+            .scenario-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .scenario--flipped .scenario-grid {
+                direction: ltr;
             }
 
             .dialogue-response {
@@ -647,8 +752,9 @@
         @media (max-width: 600px) {
             .hero h1 { font-size: 36px; }
             .statement h2 { font-size: 32px; }
+            .scenario-context { font-size: 22px; }
             .dialogue-prompt-content {
-                padding: 16px 18px;
+                padding: 14px 16px;
             }
             .build-step-number {
                 font-size: 36px;
@@ -671,6 +777,7 @@
         <div class="nav-links">
             <a href="index.html#work">Work</a>
             <a href="how-it-works.html" class="nav-current">How It Works</a>
+            <a href="faq.html">Q&amp;A</a>
             <a href="index.html#about">About</a>
             <a href="#contact" class="nav-cta">Get in Touch</a>
         </div>
@@ -735,52 +842,87 @@
         </div>
     </section>
 
-    <!-- S4: DIALOGUE — deep black -->
-    <section class="dialogue">
-        <div class="dialogue-inner">
-            <div class="dialogue-header">
-                <p class="section-label reveal">In Practice</p>
-                <h2 class="section-heading reveal">Like having a conversation with your&nbsp;team</h2>
-                <p class="section-intro reveal">You describe what you need. They handle it.</p>
-            </div>
+    <!-- S4: DIALOGUE — scenario cards, split layout -->
+    <div class="dialogue-header">
+        <p class="section-label reveal">In Practice</p>
+        <h2 class="section-heading reveal">Like having a conversation with your&nbsp;team</h2>
+        <p class="section-intro reveal">You describe what you need. They handle it.</p>
+    </div>
 
-            <div class="dialogue-exchange" data-prompt="Update the homepage — we've just launched a new service" data-lens="Creative" data-response="I'll update the hero copy and add a new section for the service. I'll keep it within your existing brand guidelines — same voice, same visual structure. Want me to draft the messaging first, or go straight to the build?">
+    <!-- Scene 1: Creative — deep black -->
+    <section class="scenario scenario--creative"
+        data-prompt="Update the homepage — we've just launched a new service">
+        <div class="scenario-grid">
+            <div class="scenario-title">
+                <p class="scenario-lens-tag"><span class="slash">/</span> Creative Director</p>
+                <p class="scenario-context">Tuesday morning. New service to&nbsp;launch.</p>
+                <p class="scenario-description">Your site needs to change today. The creative director already knows your brand guidelines, your visual language, your tone. You just say the word.</p>
+            </div>
+            <div class="dialogue-exchange">
                 <div class="dialogue-prompt">
                     <div class="dialogue-prompt-avatar">You</div>
                     <div class="dialogue-prompt-content">
-                        <p class="dialogue-prompt-text"></p>
+                        <p class="dialogue-prompt-text"><span class="tw-cursor">|</span></p>
                     </div>
                 </div>
                 <div class="dialogue-response">
                     <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
                     <div class="dialogue-response-content">
                         <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Creative</span></p>
-                        <p class="dialogue-response-text">I'll update the hero copy and add a new section for the service. I'll keep it within your existing brand guidelines — same voice, same visual structure. Want me to draft the messaging first, or go straight to the build?</p>
+                        <p class="dialogue-response-text">I'll add a new section after your case studies — that's where it'll have the most impact. I'll match the headline weight and spacing from your existing service blocks so it feels native, not bolted on. Same voice, same visual structure.</p>
+                        <p class="dialogue-response-text">Want me to draft the messaging first, or go straight to the build? I can have a working version in your browser by this afternoon.</p>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="dialogue-exchange" data-prompt="Who should this pitch deck actually be talking to?" data-lens="Audience" data-response="Based on your audience profile, the primary reader is a mid-level commissioner who's seen fifty decks this month and needs to know in ten seconds why yours is different. Lead with the problem they recognise, not your credentials.">
+    <!-- Scene 2: Audience — lifted surface with grain -->
+    <section class="scenario scenario--audience scenario--flipped"
+        data-prompt="Who should this pitch deck actually be talking to?">
+        <div class="scenario-grid">
+            <div class="scenario-title">
+                <p class="scenario-lens-tag"><span class="slash">/</span> Audience Strategist</p>
+                <p class="scenario-context">Thursday. The pitch deck that needs to&nbsp;land.</p>
+                <p class="scenario-description">You know what you want to say. But you're not sure who you're saying it to — or whether the deck is structured for them. The audience strategist sees what you can't.</p>
+            </div>
+            <div class="dialogue-exchange">
                 <div class="dialogue-prompt">
                     <div class="dialogue-prompt-avatar">You</div>
                     <div class="dialogue-prompt-content">
-                        <p class="dialogue-prompt-text"></p>
+                        <p class="dialogue-prompt-text"><span class="tw-cursor">|</span></p>
                     </div>
                 </div>
                 <div class="dialogue-response">
                     <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
                     <div class="dialogue-response-content">
                         <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Audience</span></p>
-                        <p class="dialogue-response-text">Based on your audience profile, the primary reader is a mid-level commissioner who's seen fifty decks this month and needs to know in ten seconds why yours is different. Lead with the problem they recognise, not your credentials.</p>
+                        <p class="dialogue-response-text">Your primary reader is a mid-level commissioner who's seen fifty decks this month. They need to know in ten seconds why yours is different. Right now you're leading with your credentials — but they don't care about you yet. Lead with the problem they recognise.</p>
+                        <p class="dialogue-response-text">I'll restructure the opening three slides around their pain point and flag where the current deck loses them.</p>
+                        <span class="audience-data">
+                            <span class="audience-data-icon">&#9679;</span>
+                            Drawn from: your audience profile, competitor positioning, commissioner decision patterns
+                        </span>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="dialogue-exchange" data-prompt="Does this messaging feel right? Something's off but I can't put my finger on it" data-lens="Brand" data-response="The tone is right but the structure is working against you. You're leading with what you do before the reader knows why they should care. Flip the first two sections — open with the problem they feel, then introduce the solution. That's where the energy is.">
+    <!-- Scene 3: Brand — warm red atmosphere -->
+    <section class="scenario scenario--brand"
+        data-prompt="Does this messaging feel right? Something's off but I can't put my finger on it">
+        <div class="scenario-grid">
+            <div class="scenario-title">
+                <p class="scenario-lens-tag"><span class="slash">/</span> Brand Strategist</p>
+                <p class="scenario-context">Something feels off. You can't quite place&nbsp;it.</p>
+                <p class="scenario-description">The words are there but they're not landing. The brand strategist diagnoses what your instinct is telling you — and shows you how to fix it.</p>
+            </div>
+            <div class="dialogue-exchange">
                 <div class="dialogue-prompt">
                     <div class="dialogue-prompt-avatar">You</div>
                     <div class="dialogue-prompt-content">
-                        <p class="dialogue-prompt-text"></p>
+                        <p class="dialogue-prompt-text"><span class="tw-cursor">|</span></p>
                     </div>
                 </div>
                 <div class="dialogue-response">
@@ -788,6 +930,7 @@
                     <div class="dialogue-response-content">
                         <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Brand</span></p>
                         <p class="dialogue-response-text">The tone is right but the structure is working against you. You're leading with what you do before the reader knows why they should care. Flip the first two sections — open with the problem they feel, then introduce the solution. That's where the energy is.</p>
+                        <p class="dialogue-response-text">I'll send you a revised outline with the new structure so you can see the difference before I touch the copy.</p>
                     </div>
                 </div>
             </div>
@@ -959,10 +1102,11 @@
 
         runHeroLoop();
 
-        // === Dialogue typing on scroll ===
-        const dialogueExchanges = document.querySelectorAll('.dialogue-exchange');
+        // === Scenario dialogue typing on scroll ===
+        const scenarios = document.querySelectorAll('.scenario');
+        let scenarioIndex = 0;
 
-        const dialogueObserver = new IntersectionObserver((entries) => {
+        const scenarioObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting && !entry.target.dataset.typed) {
                     entry.target.dataset.typed = 'true';
@@ -971,21 +1115,25 @@
                     const promptText = entry.target.dataset.prompt;
                     const promptEl = entry.target.querySelector('.dialogue-prompt-text');
 
+                    const isFirst = scenarioIndex === 0;
+                    const startDelay = isFirst ? 500 : 350;
+                    scenarioIndex++;
+
                     setTimeout(() => {
                         typeText(promptEl, promptText, () => {
                             setTimeout(() => {
                                 entry.target.classList.add('typed');
-                            }, 400);
+                            }, 350);
                         });
-                    }, 300);
+                    }, startDelay);
                 }
             });
         }, {
-            threshold: 0.3,
+            threshold: 0.15,
             rootMargin: '0px 0px -60px 0px'
         });
 
-        dialogueExchanges.forEach(el => dialogueObserver.observe(el));
+        scenarios.forEach(el => scenarioObserver.observe(el));
 
         // === Form submission ===
         const form = document.getElementById('contact-form');
