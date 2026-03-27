@@ -483,51 +483,96 @@
         }
 
         .dialogue-response {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
             padding-left: 48px;
         }
 
-        .dialogue-response-avatar {
-            width: 34px;
-            height: 34px;
-            border-radius: 50%;
-            background: var(--red-subtle);
-            border: 1px solid rgba(226, 54, 54, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            font-family: var(--display);
-            font-size: 13px;
-            font-weight: 800;
-        }
-
-        .dialogue-response-avatar .prefix {
-            color: var(--red);
-        }
-
         .dialogue-response-content {
-            flex-grow: 1;
             border-left: 2px solid var(--red);
             padding-left: 16px;
         }
 
         .dialogue-response-label {
             font-family: var(--display);
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 600;
             margin-bottom: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dialogue-response-label .prefix {
+            color: var(--red);
+            font-weight: 800;
+            margin-right: 0.08em;
         }
 
         .dialogue-response-label .fixed {
             color: var(--text-warm);
+            font-weight: 700;
         }
 
         .dialogue-response-label .variable {
             color: var(--warm-mid);
             font-weight: 500;
+        }
+
+        /* === THINKING INDICATOR === */
+        .dialogue-thinking {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .dialogue-thinking-text {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .dialogue-thinking-dots {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .dialogue-thinking-dots span {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            animation: thinking-pulse 1.4s ease-in-out infinite;
+        }
+
+        .dialogue-thinking-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .dialogue-thinking-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes thinking-pulse {
+            0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+            40% { opacity: 1; transform: scale(1); }
+        }
+
+        .scenario.show-thinking .dialogue-response-label {
+            opacity: 1;
+        }
+
+        .scenario.show-thinking .dialogue-thinking {
+            opacity: 1;
+        }
+
+        .scenario.typed .dialogue-thinking {
+            opacity: 0;
+            height: 0;
+            overflow: hidden;
+            transition: opacity 0.2s ease, height 0.3s ease 0.1s;
         }
 
         .dialogue-response-text {
@@ -547,6 +592,10 @@
         .scenario.typed .dialogue-response-text {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .scenario.typed .dialogue-response-text + .dialogue-response-text {
+            transition-delay: 0.8s;
         }
 
         /* Audience data callout */
@@ -786,7 +835,7 @@
         <div class="problem-inner">
             <h2 class="reveal">You've looked at the&nbsp;options.</h2>
             <div class="problem-prose reveal">
-                <p>The agency costs six figures. The template looks like everyone else. The freelancer builds something nice, then moves on. Same problem every time: nobody sticks around who actually knows your&nbsp;brand.</p>
+                <p>The agency costs six figures. The template looks like everyone else. The in-house hire is one person, one skillset, and a £50k commitment before they've learned your brand. None of them give you the thinking <em>and</em> the execution — at a price that makes&nbsp;sense.</p>
             </div>
         </div>
     </section>
@@ -795,8 +844,8 @@
     <section class="lenses">
         <div class="lenses-header">
             <p class="section-label reveal">Your Team</p>
-            <h2 class="reveal">What if you could keep the&nbsp;team?</h2>
-            <p class="reveal">I've spent twenty years learning how to understand audiences, shape messages, and make creative that cuts through. I've encoded that expertise into three specialists — and they come with&nbsp;every&nbsp;build.</p>
+            <h2 class="reveal">Three specialists. Built from twenty years of&nbsp;experience.</h2>
+            <p class="reveal">I've encoded everything I've learned about audiences, messaging, and creative into three AI specialists. They're not generic — they're built around your business, trained on your brand, and available whenever you&nbsp;need.</p>
         </div>
 
         <div class="lenses-grid">
@@ -844,9 +893,14 @@
                     </div>
                 </div>
                 <div class="dialogue-response">
-                    <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
                     <div class="dialogue-response-content">
                         <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Creative</span></p>
+                        <div class="dialogue-thinking">
+                            <span class="dialogue-thinking-text">Planning</span>
+                            <div class="dialogue-thinking-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
                         <p class="dialogue-response-text">I'll add a new section after your case studies — that's where it'll have the most impact. I'll match the headline weight and spacing from your existing service blocks so it feels native, not bolted on. Same voice, same visual structure.</p>
                         <p class="dialogue-response-text">Want me to draft the messaging first, or go straight to the build? I can have a working version in your browser by this afternoon.</p>
                     </div>
@@ -872,9 +926,14 @@
                     </div>
                 </div>
                 <div class="dialogue-response">
-                    <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
                     <div class="dialogue-response-content">
                         <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Audience</span></p>
+                        <div class="dialogue-thinking">
+                            <span class="dialogue-thinking-text">Thinking</span>
+                            <div class="dialogue-thinking-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
                         <p class="dialogue-response-text">Your primary reader is a mid-level commissioner who's seen fifty decks this month. They need to know in ten seconds why yours is different. Right now you're leading with your credentials — but they don't care about you yet. Lead with the problem they recognise.</p>
                         <p class="dialogue-response-text">I'll restructure the opening three slides around their pain point and flag where the current deck loses them.</p>
                         <span class="audience-data">
@@ -889,12 +948,12 @@
 
     <!-- Scene 3: Brand — warm red atmosphere -->
     <section class="scenario scenario--brand"
-        data-prompt="Does this messaging feel right? Something's off but I can't put my finger on it">
+        data-prompt="This page copy doesn't feel like us — can you fix it?">
         <div class="scenario-grid">
             <div class="scenario-title">
                 <p class="scenario-lens-tag"><span class="slash">/</span> Brand Strategist</p>
                 <p class="scenario-context">Something feels off. You can't quite place&nbsp;it.</p>
-                <p class="scenario-description">The words are there but they're not landing. The brand strategist diagnoses what your instinct is telling you — and shows you how to fix it.</p>
+                <p class="scenario-description">The words are there but they're not landing. The brand strategist diagnoses what your instinct is telling you — and gives you options to react&nbsp;to.</p>
             </div>
             <div class="dialogue-exchange">
                 <div class="dialogue-prompt">
@@ -904,11 +963,16 @@
                     </div>
                 </div>
                 <div class="dialogue-response">
-                    <div class="dialogue-response-avatar"><span class="prefix">/</span></div>
                     <div class="dialogue-response-content">
                         <p class="dialogue-response-label"><span class="fixed">RedSlash</span><span class="variable">Brand</span></p>
-                        <p class="dialogue-response-text">The tone is right but the structure is working against you. You're leading with what you do before the reader knows why they should care. Flip the first two sections — open with the problem they feel, then introduce the solution. That's where the energy is.</p>
-                        <p class="dialogue-response-text">I'll send you a revised outline with the new structure so you can see the difference before I touch the copy.</p>
+                        <div class="dialogue-thinking">
+                            <span class="dialogue-thinking-text">Cogitating</span>
+                            <div class="dialogue-thinking-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <p class="dialogue-response-text">The information is right but the voice has drifted. You're writing like a company when your brand works best as a conversation. I've drafted three versions — one that's warm and direct, one that leads with the reader's problem, and one that's shorter and punchier.</p>
+                        <p class="dialogue-response-text">Pick the one that feels closest. I'll tune the rest of the page to match.</p>
                     </div>
                 </div>
             </div>
@@ -954,7 +1018,7 @@
                     <span class="build-step-number">04</span>
                     <div>
                         <h4>Handover</h4>
-                        <p>You keep the keys. Your three AI specialists know your brand — and they never clock off. Update your site, build decks, check your messaging — just describe what you need, whenever you need it. My job is to make myself&nbsp;unnecessary.</p>
+                        <p>Your three AI specialists know your brand — and they never clock off. Update your site, build decks, check your messaging — just describe what you need, whenever you need&nbsp;it.</p>
                     </div>
                 </div>
             </div>
@@ -1077,8 +1141,11 @@
                     setTimeout(() => {
                         typeText(promptEl, promptText, () => {
                             setTimeout(() => {
-                                entry.target.classList.add('typed');
-                            }, 350);
+                                entry.target.classList.add('show-thinking');
+                                setTimeout(() => {
+                                    entry.target.classList.add('typed');
+                                }, 1500);
+                            }, 400);
                         });
                     }, startDelay);
                 }
