@@ -15,7 +15,7 @@
         { href: 'how-it-works.html', label: 'How It Works' },
         { href: 'pricing.html', label: 'Pricing' },
         { href: 'about.html', label: 'About' },
-        { href: 'faq.html', label: 'Q&A' },
+        { href: 'qa.html', label: 'Q&A' },
     ];
 
     const navEl = document.getElementById('nav');
