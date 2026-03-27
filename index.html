@@ -519,9 +519,27 @@
             border-radius: 4px;
         }
 
+        /* === BRIDGE === */
+        .bridge {
+            padding: 100px 48px;
+            text-align: center;
+        }
+
+        .bridge p {
+            font-family: var(--display);
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.35;
+            color: var(--text-warm);
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
         /* === RESPONSIVE === */
         @media (max-width: 900px) {
             .hero { padding: 140px 24px 80px; }
+            .bridge { padding: 60px 24px; }
             .team { padding: 80px 24px; }
             .proof { padding: 80px 24px; }
             .about { padding: 80px 24px; }
@@ -570,6 +588,11 @@
         <h1>You don't have a creative problem. You have a clarity&nbsp;problem.</h1>
         <p class="hero-sub">The website feels off. The message isn't landing. The brand doesn't match the ambition. You just can't see where the gap&nbsp;is.</p>
         <a href="how-it-works.html" class="hero-cta">See how it works <span class="arrow">&rarr;</span></a>
+    </section>
+
+    <!-- BRIDGE -->
+    <section class="bridge reveal">
+        <p>I find the gap between what you're saying and what people need to hear. Then I build you a team that closes it&nbsp;— and&nbsp;stays.</p>
     </section>
 
     <!-- S2: YOUR TEAM — the product -->
