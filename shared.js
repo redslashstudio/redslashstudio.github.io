@@ -13,8 +13,9 @@
         { href: 'index.html', label: 'Home' },
         { href: 'projects.html', label: 'Projects' },
         { href: 'how-it-works.html', label: 'How It Works' },
-        { href: 'faq.html', label: 'Q&A' },
+        { href: 'pricing.html', label: 'Pricing' },
         { href: 'about.html', label: 'About' },
+        { href: 'faq.html', label: 'Q&A' },
     ];
 
     const navEl = document.getElementById('nav');

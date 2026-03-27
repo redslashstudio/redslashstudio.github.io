@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — /RedSlash Studio</title>
+    <meta name="description" content="You're not paying for a website. You're paying for three specialists who know your brand — an audience strategist, a brand strategist, and a creative director. Available whenever you need them.">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pricing — /RedSlash Studio">
+    <meta property="og:description" content="Three specialists. Built around your brand. Available whenever you need them.">
+    <meta property="og:image" content="https://redslashstudio.com/assets/og-image.png">
+    <meta property="og:url" content="https://redslashstudio.com/pricing.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* === HERO === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 160px 48px 100px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--display);
+            font-size: clamp(44px, 7vw, 82px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.06;
+            color: var(--text-warm);
+            margin-bottom: 32px;
+        }
+
+        .hero-sub {
+            font-size: clamp(17px, 2vw, 20px);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 540px;
+        }
+
+        /* === INSIGHT — context > prompts === */
+        .insight {
+            background: var(--near-black);
+            padding: 120px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .insight::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .insight-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .insight h2 {
+            font-family: var(--display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-warm);
+            margin-bottom: 36px;
+        }
+
+        .insight-prose {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--text-secondary);
+        }
+
+        .insight-prose p {
+            margin-bottom: 24px;
+        }
+
+        .insight-prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .insight-prose strong {
+            color: var(--text-warm);
+            font-weight: 500;
+        }
+
+        /* === THE BUILD — warm surface with grain === */
+        .build {
+            background: var(--surface);
+            padding: 120px 48px;
+            position: relative;
+        }
+
+        .build::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .build-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: start;
+            position: relative;
+        }
+
+        .build-text {
+            position: sticky;
+            top: 120px;
+        }
+
+        .build-text h2 {
+            font-family: var(--display);
+            font-size: clamp(28px, 3.5vw, 40px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-warm);
+            margin-bottom: 28px;
+        }
+
+        .build-text p {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .build-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Depth cards */
+        .depth-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .depth-card {
+            padding: 44px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .depth-card:first-child {
+            border-top: 1px solid var(--border);
+        }
+
+        .depth-card-name {
+            font-family: var(--display);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-warm);
+            margin-bottom: 12px;
+        }
+
+        .depth-card-body {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .depth-card-range {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--warm-mid);
+            padding-left: 14px;
+            border-left: 2px solid var(--red);
+        }
+
+        /* === YOUR TEAM — off-white === */
+        .team {
+            background: var(--off-white);
+            padding: 120px 48px;
+        }
+
+        .team-header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 80px;
+        }
+
+        .team .section-label {
+            color: var(--red);
+        }
+
+        .team-header h2 {
+            font-family: var(--display);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--black);
+            margin-bottom: 16px;
+        }
+
+        .team-header p {
+            font-size: 17px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .team-range {
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .team-range-amount {
+            font-family: var(--display);
+            font-size: clamp(24px, 3vw, 32px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--black);
+            margin-bottom: 8px;
+        }
+
+        .team-range-note {
+            font-size: 15px;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        .team-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+        }
+
+        .team-card {
+            padding: 48px 40px;
+            border-top: 3px solid transparent;
+            transition: border-color 0.3s ease, background 0.3s ease;
+            position: relative;
+        }
+
+        .team-card::after {
+            content: '';
+            position: absolute;
+            top: 48px;
+            bottom: 48px;
+            right: 0;
+            width: 1px;
+            background: #D4D0CB;
+        }
+
+        .team-card:last-child::after {
+            display: none;
+        }
+
+        .team-card:hover {
+            border-top-color: var(--red);
+            background: rgba(226, 54, 54, 0.03);
+        }
+
+        .team-card-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .team-card h3 {
+            font-family: var(--display);
+            font-size: clamp(24px, 2.5vw, 30px);
+            letter-spacing: -0.01em;
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .team-card h3 .prefix {
+            color: var(--red);
+            font-weight: 800;
+            margin-right: 0.08em;
+        }
+
+        .team-card h3 .fixed {
+            color: var(--black);
+            font-weight: 700;
+        }
+
+        .team-card h3 .variable {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .team-card-uses {
+            list-style: none;
+        }
+
+        .team-card-uses li {
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 1.6;
+            color: var(--text-muted);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .team-card-uses li:last-child {
+            border-bottom: none;
+        }
+
+        /* === DISCOVERY — dark on-ramp section === */
+        .discovery {
+            background: var(--near-black);
+            padding: 120px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .discovery::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+            background-size: 256px;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .discovery-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .discovery h2 {
+            font-family: var(--display);
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            color: var(--text-warm);
+            margin-bottom: 28px;
+        }
+
+        .discovery-prose {
+            font-size: 17px;
+            font-weight: 400;
+            line-height: 1.85;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .discovery-prose p {
+            margin-bottom: 20px;
+        }
+
+        .discovery-prose p:last-child {
+            margin-bottom: 0;
+        }
+
+        .discovery-prose strong {
+            color: var(--text-warm);
+            font-weight: 500;
+        }
+
+        .discovery-price {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--warm-mid);
+            padding-left: 14px;
+            border-left: 2px solid var(--red);
+            margin-bottom: 40px;
+        }
+
+        .discovery-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--body);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            color: var(--text-warm);
+            text-decoration: none;
+            padding: 14px 28px;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            transition: all 0.25s ease;
+        }
+
+        .discovery-cta:hover {
+            border-color: var(--text-secondary);
+            background: var(--surface);
+        }
+
+        .discovery-cta .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .discovery-cta:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .hero { padding: 140px 24px 80px; }
+            .insight { padding: 80px 24px; }
+            .build { padding: 80px 24px; }
+            .team { padding: 80px 24px; }
+            .discovery { padding: 80px 24px; }
+
+            .build-inner {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .build-text {
+                position: static;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-card::after {
+                display: none;
+            }
+
+            .team-card {
+                padding: 32px 24px;
+                border-top: 1px solid #D4D0CB;
+            }
+
+            .team-card:hover {
+                border-top-color: #D4D0CB;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav"></nav>
+
+    <!-- S1: HERO -->
+    <section class="hero">
+        <p class="section-label reveal">Pricing</p>
+        <h1 class="reveal">You're not paying for a&nbsp;website. You're paying for your&nbsp;team.</h1>
+        <p class="hero-sub reveal">Three specialists — an audience strategist, a brand strategist, and a creative director — built around your business and available whenever you need&nbsp;them.</p>
+    </section>
+
+    <!-- S2: THE INSIGHT — context > prompts -->
+    <section class="insight">
+        <div class="insight-inner">
+            <h2 class="reveal">The difference isn't the technology. It's the&nbsp;context.</h2>
+            <div class="insight-prose reveal">
+                <p>Anyone can ask AI to write a homepage. The result sounds like everyone else's homepage. That's not a technology problem — it's a context problem.</p>
+                <p>Your specialists are different because they know your business. They know your audience — who they are, what they need, what makes them leave. They know your voice — how you sound at your best, not how a website template sounds. They know your visual language — the palette, the typography, the rhythm that makes your brand feel like yours.</p>
+                <p><strong>That context is what you're paying for.</strong> The depth of the build determines how well your team knows you — and how much they can do for&nbsp;you.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- S3: THE BUILD — upfront investment -->
+    <section class="build">
+        <div class="build-inner">
+            <div class="build-text reveal">
+                <p class="section-label">The Build</p>
+                <h2>The upfront work that makes everything&nbsp;else&nbsp;possible</h2>
+                <p>I learn your business, diagnose the messaging gap, build your website, and encode everything into your three specialists. The investment depends on how deep that work needs to&nbsp;go.</p>
+                <p>A solo consultant with a clear proposition needs less diagnostic work than a growing firm with multiple audiences and fuzzy positioning. Both get the same quality of output — the difference is how much strategic groundwork comes&nbsp;first.</p>
+            </div>
+
+            <div class="depth-cards">
+                <div class="depth-card reveal">
+                    <h3 class="depth-card-name">Clear Focus</h3>
+                    <p class="depth-card-body">You know your audience. You have a voice. The work is about encoding what already works — building your website and training your specialists on a brand that's already defined. Less diagnostic, more&nbsp;craft.</p>
+                    <p class="depth-card-range">From around &pound;5,000</p>
+                </div>
+
+                <div class="depth-card reveal">
+                    <h3 class="depth-card-name">Finding the Story</h3>
+                    <p class="depth-card-body">The messaging needs work. The audience isn't clear. The build includes the full diagnostic — figuring out who you're talking to and what they need to hear, before encoding anything. Strategy and&nbsp;execution.</p>
+                    <p class="depth-card-range">From around &pound;10,000</p>
+                </div>
+
+                <div class="depth-card reveal">
+                    <h3 class="depth-card-name">Full Rebrand</h3>
+                    <p class="depth-card-body">Multiple audiences. Complex positioning. A significant gap between where you are and where you need to be. The deepest encoding — the most strategic work upfront, the richest context for your&nbsp;team.</p>
+                    <p class="depth-card-range">From around &pound;20,000</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- S4: YOUR TEAM — ongoing access with specialist cards -->
+    <section class="team">
+        <div class="team-header">
+            <p class="section-label reveal">Your Team</p>
+            <h2 class="reveal">Keep your team working after the&nbsp;build</h2>
+            <p class="reveal">Your three specialists don't switch off when the website goes live. They know your brand, your audience, and your visual language — and they're available whenever you&nbsp;need.</p>
+        </div>
+
+        <div class="team-range reveal">
+            <p class="team-range-amount">From &pound;500/month</p>
+        </div>
+
+        <div class="team-grid">
+            <div class="team-card reveal">
+                <p class="team-card-label">Your Strategist</p>
+                <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Audience</span></h3>
+                <ul class="team-card-uses">
+                    <li>Who should this pitch deck be talking&nbsp;to?</li>
+                    <li>New service — how do we frame it for our primary&nbsp;customer?</li>
+                    <li>Are our LinkedIn posts speaking to the right&nbsp;people?</li>
+                    <li>What do our competitors' audiences look&nbsp;like?</li>
+                    <li>Which audience should we lead with at this&nbsp;event?</li>
+                </ul>
+            </div>
+
+            <div class="team-card reveal">
+                <p class="team-card-label">Your Brand Thinker</p>
+                <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Brand</span></h3>
+                <ul class="team-card-uses">
+                    <li>This page copy doesn't feel like us — what's&nbsp;off?</li>
+                    <li>What should our newsletter actually be&nbsp;saying?</li>
+                    <li>Rewrite our boilerplate for a new&nbsp;partnership</li>
+                    <li>Write the messaging for a campaign&nbsp;landing page</li>
+                    <li>Does this proposal sound like our&nbsp;brand?</li>
+                </ul>
+            </div>
+
+            <div class="team-card reveal">
+                <p class="team-card-label">Your Creative Director</p>
+                <h3><span class="prefix">/</span><span class="fixed">RedSlash</span><span class="variable">Creative</span></h3>
+                <ul class="team-card-uses">
+                    <li>Add a new section to the&nbsp;website</li>
+                    <li>Design a pitch deck for&nbsp;Thursday</li>
+                    <li>Create social assets for this&nbsp;campaign</li>
+                    <li>Build a one-pager we can send after&nbsp;meetings</li>
+                    <li>Make this PDF look like it came from&nbsp;us</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- S5: DISCOVERY SESSION — on-ramp for people not ready for the full build -->
+    <section class="discovery">
+        <div class="discovery-inner">
+            <p class="section-label reveal">Not Ready for the Full Build?</p>
+            <h2 class="reveal">Start with a Discovery&nbsp;Session</h2>
+            <div class="discovery-prose reveal">
+                <p>If you're not sure what you need yet — or you want to understand the gap before committing — a discovery session gives you clarity without the full investment.</p>
+                <p>I'll look at your website, your messaging, your audience, and your competitors. You'll get an honest diagnostic: what's working, what isn't, and what it would take to close the gap. It's the same strategic thinking that powers the full build — just as a standalone&nbsp;piece.</p>
+                <p>If you decide to go ahead with the build afterwards, <strong>the discovery fee comes off the total</strong>.</p>
+            </div>
+            <p class="discovery-price reveal">From around &pound;1,500</p>
+            <a href="#contact" class="discovery-cta reveal">Book a discovery session <span class="arrow">&rarr;</span></a>
+        </div>
+    </section>
+
+    <!-- S6: CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <p class="section-label reveal">Get in Touch</p>
+            <h2 class="reveal">Let's talk about your&nbsp;brand.</h2>
+            <p class="contact-sub reveal">Tell me about your business. I'll tell you what's possible — and what it would take to get&nbsp;there.</p>
+            <a href="mailto:hello@redslashstudio.com" class="contact-email reveal">hello@redslashstudio.com</a>
+            <p class="contact-or reveal">or</p>
+            <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mwvwedqe" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tell me about your business</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send <span class="arrow">&rarr;</span></button>
+            </form>
+        </div>
+    </section>
+
+    <footer></footer>
+
+    <script src="shared.js"></script>
+    <script>
+        // Staggered team card reveals
+        const teamCards = document.querySelectorAll('.team-card.reveal');
+        const teamObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = entry.target.parentElement.querySelectorAll('.team-card');
+                    cards.forEach((card, i) => {
+                        setTimeout(() => card.classList.add('visible'), i * 150);
+                    });
+                    teamObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        if (teamCards.length) teamObserver.observe(teamCards[0]);
+    </script>
+
+</body>
+</html>
