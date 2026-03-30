@@ -65,14 +65,15 @@
         footerEl.innerHTML = `
             <div class="footer-left">
                 <span class="footer-logo"><span class="prefix">/</span>RedSlash</span>
-                <span class="footer-divider"></span>
-                <span class="footer-partners-label">Built in partnership with</span>
-                <div class="footer-partners">
-                    <a href="https://audiencestrategies.com" target="_blank" rel="noopener"><img src="assets/H Audience Strategies White.png" alt="Audience Strategies"></a>
-                    <a href="https://steadman.ai" target="_blank" rel="noopener"><img src="assets/steadman-wordmark-cream.png" alt="Steadman"></a>
-                </div>
             </div>
-            <span class="footer-copy">&copy; 2026 Red Slash Studio</span>
+            <div class="footer-right">
+                <div class="footer-links">
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="company.html">Company Details</a>
+                </div>
+                <span class="footer-copy">&copy; 2026 Red Slash Studio Limited</span>
+            </div>
         `;
     }
 
