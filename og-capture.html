@@ -6,14 +6,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        html, body { width: 1200px; height: 630px; overflow: hidden; }
-        body {
-            background: #0A0A0A;
+        html, body { width: 1200px; height: 630px; overflow: hidden; background: #0A0A0A; }
+        .container {
+            width: 1200px;
+            height: 630px;
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: center;
             padding: 80px 100px;
-            position: relative;
         }
         .glow {
             position: absolute;
@@ -22,15 +23,6 @@
             width: 400px;
             height: 400px;
             background: radial-gradient(circle, rgba(226, 54, 54, 0.12) 0%, transparent 70%);
-        }
-        .label {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: #FF5050;
-            margin-bottom: 28px;
         }
         h1 {
             font-family: 'Bricolage Grotesque', sans-serif;
@@ -52,7 +44,7 @@
         }
         .logo {
             position: absolute;
-            top: 510px;
+            bottom: 72px;
             right: 100px;
             font-family: 'Bricolage Grotesque', sans-serif;
             font-size: 28px;
@@ -68,10 +60,11 @@
     </style>
 </head>
 <body>
-    <div class="glow"></div>
-    <p class="label">Independence, not dependency</p>
-    <h1>You don't have a creative problem. You have a clarity problem.</h1>
-    <p class="sub">An audience strategist, a brand strategist, and a creative director — built around your business.</p>
-    <div class="logo"><span class="prefix">/</span>RedSlash</div>
+    <div class="container">
+        <div class="glow"></div>
+        <h1>What if you could look as good as you actually are?</h1>
+        <p class="sub">Your business does great work. But the website, the brand, the way it shows up — it's not telling that story. Not yet.</p>
+        <div class="logo"><span class="prefix">/</span>RedSlash</div>
+    </div>
 </body>
 </html>
