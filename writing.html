@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writing — Red Slash Studio</title>
+    <meta name="description" content="Thoughts on branding, AI, design, and what happens when twenty years of broadcast experience meets new tools.">
+    <meta name="theme-color" content="#0A0A0A">
+    <link rel="icon" type="image/png" href="assets/favicon.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <link rel="canonical" href="https://redslashstudio.com/writing.html">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        /* === HERO === */
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 180px 48px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: var(--display);
+            font-size: clamp(44px, 7vw, 82px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.06;
+            color: var(--text-warm);
+            margin-bottom: 24px;
+            max-width: 700px;
+        }
+
+        .hero-sub {
+            font-size: clamp(17px, 2vw, 20px);
+            font-weight: 300;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            max-width: 520px;
+        }
+
+        /* === POST LIST === */
+        .posts {
+            padding: 0 48px 120px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .post-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 48px;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            padding: 48px 0;
+            border-top: 1px solid var(--border);
+            transition: border-color 0.3s ease;
+        }
+
+        .post-item-text {
+            text-align: left;
+        }
+
+        .post-item-image {
+            width: 200px;
+            flex-shrink: 0;
+        }
+
+        .post-item-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            transition: transform 0.6s ease;
+        }
+
+        .post-item:hover .post-item-image img {
+            transform: scale(1.02);
+        }
+
+        .post-item:last-child {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .post-item:hover {
+            border-top-color: var(--red);
+        }
+
+        .post-item:hover + .post-item {
+            border-top-color: var(--border);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .post-date {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .post-tag {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--red-label);
+        }
+
+        .post-title {
+            font-family: var(--display);
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-warm);
+            margin-bottom: 12px;
+            max-width: 720px;
+        }
+
+        .post-excerpt {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            max-width: 620px;
+        }
+
+        .post-read {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: var(--red-label);
+            margin-top: 20px;
+            transition: color 0.25s ease;
+        }
+
+        .post-item:hover .post-read {
+            color: var(--red-glow);
+        }
+
+        .post-read .arrow {
+            transition: transform 0.25s ease;
+        }
+
+        .post-item:hover .post-read .arrow {
+            transform: translateX(4px);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 900px) {
+            .hero { padding: 140px 24px 60px; }
+            .posts { padding: 0 24px 80px; }
+
+            .post-item {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+
+            .post-item-text {
+                text-align: left;
+                order: 2;
+            }
+
+            .post-item-image {
+                order: 1;
+                width: 160px;
+            }
+
+            .post-meta {
+                justify-content: flex-start;
+            }
+
+            .post-excerpt {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .post-title { font-size: 22px; }
+            .post-item { padding: 32px 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav id="nav"></nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <p class="section-label reveal">Writing</p>
+        <h1 class="reveal">Musings.</h1>
+        <p class="hero-sub reveal">Occasional thoughts on branding, AI, and building things that didn't exist&nbsp;yesterday.</p>
+    </section>
+
+    <!-- POST LIST -->
+    <div class="posts">
+
+        <a href="writing/the-prit-stick-and-the-design-studio.html" class="post-item reveal">
+            <div class="post-item-image">
+                <img src="assets/charlie-16.png" alt="Charlie, aged 16" loading="lazy">
+            </div>
+            <div class="post-item-text">
+                <div class="post-meta">
+                    <span class="post-date">April 2026</span>
+                </div>
+                <h2 class="post-title">From Pritt Stick to Design&nbsp;Studio</h2>
+                <p class="post-excerpt">When I was sixteen, I Pritt-Sticked some Clip Art to a letterhead and called it brand design. Twenty years and a lot of photocopier toner later, the tools finally caught&nbsp;up.</p>
+                <span class="post-read">Read <span class="arrow">&rarr;</span></span>
+            </div>
+        </a>
+
+    </div>
+
+    <footer></footer>
+
+    <script src="shared.js"></script>
+
+</body>
+</html>
