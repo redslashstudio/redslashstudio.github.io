@@ -4,6 +4,20 @@
 
 (function () {
 
+    // --- SECURITY HEADERS ---
+    if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
+        const csp = document.createElement('meta');
+        csp.httpEquiv = 'Content-Security-Policy';
+        csp.content = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-src https://mrcharliepalmer.github.io https://redslashstudio.github.io;";
+        document.head.appendChild(csp);
+    }
+    if (!document.querySelector('meta[name="referrer"]')) {
+        const ref = document.createElement('meta');
+        ref.name = 'referrer';
+        ref.content = 'strict-origin-when-cross-origin';
+        document.head.appendChild(ref);
+    }
+
     // --- NAV ---
     const pathParts = location.pathname.split('/').filter(Boolean);
     const page = pathParts.pop() || 'index.html';
@@ -82,16 +96,52 @@
     // --- CONTACT SECTION ---
     const contactEl = document.querySelector('.contact[data-heading]');
     if (contactEl && !contactEl.children.length) {
-        const heading = contactEl.dataset.heading || 'Get in touch.';
-        const sub = contactEl.dataset.sub || 'No pitch. No commitment. Just a conversation about where you are and what could be different.';
-        contactEl.innerHTML = `
-            <div class="contact-inner">
-                <p class="section-label reveal">Get in Touch</p>
-                <h2 class="reveal">${heading}</h2>
-                <p class="contact-sub reveal">${sub}</p>
-                <a href="mailto:hello@redslashstudio.com" class="contact-email reveal">hello@redslashstudio.com</a>
-                <p class="contact-or reveal">or</p>
+        const headingRaw = contactEl.dataset.heading || 'Get in touch.';
+        const subRaw = contactEl.dataset.sub || 'No pitch. No commitment. Just a conversation about where you are and what could be different.';
+
+        // Build text nodes safely — convert <br> to line breaks, &nbsp; to \u00a0
+        function safeTextElement(tag, className, raw) {
+            const el = document.createElement(tag);
+            if (className) el.className = className;
+            const clean = raw.replace(/&nbsp;/g, '\u00a0');
+            const parts = clean.split(/<br\s*\/?>/i);
+            parts.forEach(function (part, i) {
+                el.appendChild(document.createTextNode(part));
+                if (i < parts.length - 1) el.appendChild(document.createElement('br'));
+            });
+            return el;
+        }
+
+        const inner = document.createElement('div');
+        inner.className = 'contact-inner';
+
+        const label = document.createElement('p');
+        label.className = 'section-label reveal';
+        label.textContent = 'Get in Touch';
+        inner.appendChild(label);
+
+        const h2 = safeTextElement('h2', 'reveal', headingRaw);
+        inner.appendChild(h2);
+
+        const sub = safeTextElement('p', 'contact-sub reveal', subRaw);
+        inner.appendChild(sub);
+
+        const emailLink = document.createElement('a');
+        emailLink.href = 'mailto:hello@redslashstudio.com';
+        emailLink.className = 'contact-email reveal';
+        emailLink.textContent = 'hello@redslashstudio.com';
+        inner.appendChild(emailLink);
+
+        const orP = document.createElement('p');
+        orP.className = 'contact-or reveal';
+        orP.textContent = 'or';
+        inner.appendChild(orP);
+
+        // Form is static markup — safe to use innerHTML for this fixed template
+        const formWrapper = document.createElement('div');
+        formWrapper.innerHTML = `
                 <form class="contact-form reveal" id="contact-form" action="https://formspree.io/f/mwvwedqe" method="POST">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                     <div class="form-group">
                         <label for="name">Your Name</label>
                         <input type="text" id="name" name="name" placeholder="Tom Richardson">
@@ -106,8 +156,10 @@
                     </div>
                     <button type="submit" class="form-submit">Send Message <span class="arrow">&rarr;</span></button>
                 </form>
-            </div>
         `;
+        inner.appendChild(formWrapper.firstElementChild);
+
+        contactEl.appendChild(inner);
     }
 
     // --- SCROLL REVEAL ---
