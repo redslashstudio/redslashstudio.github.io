@@ -8,7 +8,7 @@
     if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
         const csp = document.createElement('meta');
         csp.httpEquiv = 'Content-Security-Policy';
-        csp.content = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-src https://mrcharliepalmer.github.io https://redslashstudio.github.io;";
+        csp.content = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-src https://mrcharliepalmer.github.io https://redslashstudio.github.io https://fff.redslashstudio.com;";
         document.head.appendChild(csp);
     }
     if (!document.querySelector('meta[name="referrer"]')) {
