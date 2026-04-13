@@ -4,20 +4,6 @@
 
 (function () {
 
-    // --- SECURITY HEADERS ---
-    if (!document.querySelector('meta[http-equiv="Content-Security-Policy"]')) {
-        const csp = document.createElement('meta');
-        csp.httpEquiv = 'Content-Security-Policy';
-        csp.content = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://formspree.io; frame-src https://mrcharliepalmer.github.io https://redslashstudio.github.io https://fff.redslashstudio.com;";
-        document.head.appendChild(csp);
-    }
-    if (!document.querySelector('meta[name="referrer"]')) {
-        const ref = document.createElement('meta');
-        ref.name = 'referrer';
-        ref.content = 'strict-origin-when-cross-origin';
-        document.head.appendChild(ref);
-    }
-
     // --- NAV ---
     const pathParts = location.pathname.split('/').filter(Boolean);
     const page = pathParts.pop() || 'index.html';
