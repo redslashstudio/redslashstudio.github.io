@@ -4,11 +4,13 @@
 
 (function () {
 
-    // --- VERCEL WEB ANALYTICS ---
-    const vercelScript = document.createElement('script');
-    vercelScript.defer = true;
-    vercelScript.src = '/_vercel/insights/script.js';
-    document.head.appendChild(vercelScript);
+    // --- VERCEL WEB ANALYTICS + SPEED INSIGHTS ---
+    ['/_vercel/insights/script.js', '/_vercel/speed-insights/script.js'].forEach(src => {
+        const s = document.createElement('script');
+        s.defer = true;
+        s.src = src;
+        document.head.appendChild(s);
+    });
 
     // --- NAV ---
     const pathParts = location.pathname.split('/').filter(Boolean);
