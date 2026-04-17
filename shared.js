@@ -4,6 +4,12 @@
 
 (function () {
 
+    // --- VERCEL WEB ANALYTICS ---
+    const vercelScript = document.createElement('script');
+    vercelScript.defer = true;
+    vercelScript.src = '/_vercel/insights/script.js';
+    document.head.appendChild(vercelScript);
+
     // --- NAV ---
     const pathParts = location.pathname.split('/').filter(Boolean);
     const page = pathParts.pop() || 'index.html';
